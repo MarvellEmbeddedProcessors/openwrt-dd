@@ -13,6 +13,9 @@ mvebu_board_detect() {
 	machine=$(cat /proc/device-tree/model)
 
 	case "$machine" in
+	*"Marvell Armada-8040 development board A setup")
+		name="armada-a8k-8040-db"
+		;;
 	*)
 		name="unknown"
 		;;

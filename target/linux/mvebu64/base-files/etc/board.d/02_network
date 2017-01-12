@@ -11,6 +11,9 @@ board_config_update
 board=$(mvebu_board_name)
 
 case "$board" in
+armada-a8k-8040-db)
+	ucidef_set_interfaces_lan_wan "eth3" "eth1"
+	;;
 *)
 	ucidef_set_interface_lan "eth0"
 	;;

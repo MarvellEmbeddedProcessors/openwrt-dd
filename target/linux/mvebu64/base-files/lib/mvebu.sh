@@ -16,6 +16,9 @@ mvebu_board_detect() {
 	*"Marvell Armada-8040 development board router setup")
 		name="armada-a8k-8040-db"
 		;;
+	*"Marvell Armada-7040 development board router setup")
+		name="armada-a7k-7040-db"
+		;;
 	*)
 		name="unknown"
 		;;

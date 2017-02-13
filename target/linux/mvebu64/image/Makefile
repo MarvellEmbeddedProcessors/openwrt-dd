@@ -26,6 +26,16 @@ ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 endif
 endef
 
+# Marvell Armada-7040 development board router setup
+define Image/BuildKernel/Profile/armada-a7k-7040-db
+	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image
+	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image.gz
+	cp $(DTS_DIR)/marvell/armada-7040-db-A.dtb $(BIN_DIR)/armada-7040-db-A.dtb
+ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
+	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image-initramfs
+endif
+endef
+
 define Image/Build/squashfs
     $(call prepare_generic_squashfs,$(KDIR)/root.squashfs)
 endef

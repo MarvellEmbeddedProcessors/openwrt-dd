@@ -16,4 +16,16 @@ define Profile/armada-a8k-8040-db/Description
   Package set compatible with the Armada 88F8040 Development Board.
 endef
 
+define Profile/armada-a7k-7040-db
+  NAME:=Marvell Armada 7040 DB (DB-88F7040-A1)
+  CPU_TYPE:=cortex-a53
+  CPU_SUBTYPE:=neon-vfpv4
+  PACKAGES:= kmod-marvell-sata kmod-scsi-generic kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb-storage kmod-usb-storage-extras kmod-usb2 kmod-usb3 usbutils kmod-mmc mmc-utils kmod-mtd-rw kmod-nbd pciutils fdisk lsblk kmod-ipsec
+endef
+
+define Profile/armada-a7k-7040-db/Description
+  Package set compatible with the Armada 88F7040 Development Board.
+endef
+
 $(eval $(call Profile,armada-a8k-8040-db))
+$(eval $(call Profile,armada-a7k-7040-db))

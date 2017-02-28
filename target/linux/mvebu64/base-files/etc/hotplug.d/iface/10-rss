@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Enable RSS on all interfaces
+
+[ "$ACTION" = ifup ] || exit 0
+
+# Check if ethtool is installed
+check_eth=$(which ethtool)
+if [ -z "$check_eth" ]; then
+	logger -t RSS_enable "ethtool is not installed"
+fi
+
+# Set the interfaces
+interfaces=$(ls /sys/class/net/ | grep ^eth)
+for i in $interfaces; do
+	ethtool -K $i rxhash on
+done

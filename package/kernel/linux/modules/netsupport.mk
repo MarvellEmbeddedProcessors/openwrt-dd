@@ -1061,3 +1061,18 @@ endef
 
 $(eval $(call KernelPackage,mdio))
 
+
+define KernelPackage/mvpp2x-sysfs
+  SUBMENU:=$(NETWORK_SUPPORT_MENU)
+  TITLE:=Marvell network driver
+  DEPENDS:=@TARGET_mvebu64
+  KCONFIG:=CONFIG_MVXMDIO
+  FILES:=$(LINUX_DIR)/drivers/net/ethernet/marvell/mvpp2x/sysfs/mvpp2x_sysfs.ko
+  AUTOLOAD:=$(call AutoLoad,32,mvpp2x-sysfs)
+endef
+
+define KernelPackage/mvpp2x-sysfs/description
+ Additional kernel modules for Marvell MVPP2X driver
+endef
+
+$(eval $(call KernelPackage,mvpp2x-sysfs))

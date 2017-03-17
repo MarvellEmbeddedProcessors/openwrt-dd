@@ -36,6 +36,16 @@ ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 endif
 endef
 
+# Marvell Armada 3720 Development Board DB-88F3720-DDR3
+define Image/BuildKernel/Profile/armada-3720-db
+	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-3720-db-Image
+	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-3720-db-Image.gz
+	cp $(DTS_DIR)/marvell/armada-3720-db-sfp.dtb $(BIN_DIR)/armada-3720-db-sfp.dtb
+ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
+	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-3720-db-Image-initramfs
+endif
+endef
+
 define Image/Build/squashfs
     $(call prepare_generic_squashfs,$(KDIR)/root.squashfs)
 endef

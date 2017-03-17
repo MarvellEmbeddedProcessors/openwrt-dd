@@ -17,6 +17,9 @@ armada-a8k-8040-db)
 armada-a7k-7040-db)
 	ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"
 	;;
+armada-3720-db)
+	ucidef_set_interface_wan "eth0"
+	;;
 *)
 	ucidef_set_interface_lan "eth0"
 	;;

@@ -19,6 +19,9 @@ mvebu_board_detect() {
 	*"Marvell Armada-7040 development board A setup")
 		name="armada-a7k-7040-db"
 		;;
+	*"Marvell Armada 3720 Development Board DB-88F3720-DDR3")
+		name="armada-3720-db"
+		;;
 	*)
 		name="unknown"
 		;;

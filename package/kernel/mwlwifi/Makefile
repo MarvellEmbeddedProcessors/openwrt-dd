@@ -29,7 +29,7 @@ include $(INCLUDE_DIR)/package.mk
 define KernelPackage/mwlwifi
   SUBMENU:=Wireless Drivers
   TITLE:=Marvell 88W8864 wireless driver
-  DEPENDS:=+kmod-mac80211 +@DRIVER_11N_SUPPORT @PCI_SUPPORT @TARGET_mvebu
+  DEPENDS:=+@DRIVER_11N_SUPPORT @PCI_SUPPORT @TARGET_mvebu||TARGET_mvebu64 +hostapd
   FILES:=$(PKG_BUILD_DIR)/mwlwifi.ko
   AUTOLOAD:=$(call AutoLoad,50,mac80211 mwlwifi)
 endef
@@ -40,7 +40,6 @@ NOSTDINC_FLAGS = \
 	-I$(STAGING_DIR)/usr/include/mac80211-backport \
 	-I$(STAGING_DIR)/usr/include/mac80211/uapi \
 	-I$(STAGING_DIR)/usr/include/mac80211 \
-	-include backport/backport.h
 
 define Build/Compile
 	+$(MAKE) $(PKG_JOBS) -C "$(LINUX_DIR)" \

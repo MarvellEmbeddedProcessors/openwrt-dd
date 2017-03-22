@@ -1,0 +1,10 @@
+--- a/mac80211.c
++++ b/mac80211.c
+@@ -16,6 +16,7 @@
+ /* Description:  This file implements mac80211 related functions. */
+ 
+ #include <linux/etherdevice.h>
++#include <net/mac80211.h>
+ 
+ #include "sysadpt.h"
+ #include "dev.h"

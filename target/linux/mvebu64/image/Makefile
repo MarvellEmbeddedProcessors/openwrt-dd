@@ -46,6 +46,16 @@ ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 endif
 endef
 
+# Marvell Armada 3700 Community Board (ESPRESSObin)
+define Image/BuildKernel/Profile/armada-ESPRESSObin
+	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-ESPRESSObin-Image
+	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-ESPRESSObin-Image.gz
+	cp $(DTS_DIR)/marvell/armada-3720-community.dtb $(BIN_DIR)/armada-3720-community.dtb
+ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
+	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-ESPRESSObin-Image-initramfs
+endif
+endef
+
 define Image/Build/squashfs
     $(call prepare_generic_squashfs,$(KDIR)/root.squashfs)
 endef

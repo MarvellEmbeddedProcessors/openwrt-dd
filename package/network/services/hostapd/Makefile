@@ -380,11 +380,10 @@ define Package/hostapd/install
 	$(call Install/hostapd,$(1))
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hostapd/hostapd $(1)/usr/sbin/
 
-	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_DATA) ./files/hostapd.conf $(1)/etc/hostapd.conf
+	$(INSTALL_DIR) $(1)/lib/wifi $(1)/lib/netifd/wireless
+	$(INSTALL_DATA) ./files/lib/wifi/mac80211.sh $(1)/lib/wifi
+	$(INSTALL_BIN) ./files/lib/netifd/wireless/mac80211.sh $(1)/lib/netifd/wireless
 
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/hostapd.init $(1)/etc/init.d/hostapd
 endef
 Package/hostapd-mini/install = $(Package/hostapd/install)
 

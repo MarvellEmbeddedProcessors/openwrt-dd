@@ -25,6 +25,9 @@ mvebu_board_detect() {
 	*"Marvell Armada 3700 Community Board")
 		name="armada-ESPRESSObin"
 		;;
+	*"Marvell 8040 MACHIATOBin")
+		name="armada-a8k-MACCHIATOBin"
+		;;
 	*)
 		name="unknown"
 		;;

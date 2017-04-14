@@ -26,6 +26,16 @@ ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 endif
 endef
 
+# Marvell 8040 MACHIATOBin
+define Image/BuildKernel/Profile/armada-a8k-MACHIATOBin
+	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-a8k-MACHIATOBin-Image
+	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-a8k-MACHIATOBin-Image.gz
+	cp $(DTS_DIR)/marvell/armada-8040-mcbin.dtb $(BIN_DIR)/armada-8040-mcbin.dtb
+ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
+	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-a8k-MACHIATOBin-Image-initramfs
+endif
+endef
+
 # Marvell Armada-7040 development board router setup
 define Image/BuildKernel/Profile/armada-a7k-7040-db
 	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image

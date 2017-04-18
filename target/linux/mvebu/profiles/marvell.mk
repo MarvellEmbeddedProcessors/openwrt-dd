@@ -27,28 +27,6 @@ endef
 
 $(eval $(call Profile,370-RD))
 
-define Profile/385-RD
-  NAME:=Marvell Armada 385 RD (RD-88F6820-AP)
-  PACKAGES:=
-endef
-
-define Profile/385-RD/Description
- Package set compatible with the Armada 385 reference design board (RD-88F6820-AP).
-endef
-
-$(eval $(call Profile,385-RD))
-
-define Profile/385-DB-AP
-  NAME:=Marvell Armada 385 DB AP (DB-88F6820-AP)
-  PACKAGES:=
-endef
-
-define Profile/385-DB-AP/Description
- Package set compatible with the Armada 385 access point development board (DB-88F6820-AP).
-endef
-
-$(eval $(call Profile,385-DB-AP))
-
 define Profile/XP-DB
   NAME:=Marvell Armada XP DB (DB-78460-BP)
   PACKAGES:=

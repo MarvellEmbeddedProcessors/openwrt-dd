@@ -144,49 +144,20 @@ endef
 # Boards with NAND, without subpages
 $(eval $(call NANDProfile,370-DB,armada-370-db,512KiB,4096))
 $(eval $(call NANDProfile,370-RD,armada-370-rd,512KiB,4096))
-$(eval $(call NANDProfile,385-DB-AP,armada-385-db-ap,256KiB,4096))
 $(eval $(call NANDProfile,Mirabox,armada-370-mirabox,512KiB,4096))
 $(eval $(call NANDProfile,XP-DB,armada-xp-db,512KiB,4096))
 $(eval $(call NANDProfile,XP-GP,armada-xp-gp,512KiB,4096))
 
 # Boards with NAND, with subpages
 $(eval $(call NANDProfile,Mamba,armada-xp-linksys-mamba,128KiB,2048,512,2048))
-$(eval $(call NANDProfile,Caiman,armada-385-linksys-caiman,128KiB,2048,512,2048))
-$(eval $(call NANDProfile,Cobra,armada-385-linksys-cobra,128KiB,2048,512,2048))
-$(eval $(call NANDProfile,Rango,armada-385-linksys-rango,128KiB,2048,512,2048))
-$(eval $(call NANDProfile,Shelby,armada-385-linksys-shelby,128KiB,2048,512,2048))
 
 # Boards with large NOR, where we want to use UBI
 $(eval $(call UBINORProfile,OpenBlocks-AX-3-4,armada-xp-openblocks-ax3-4,128KiB))
 
-# Boards with small NOR, where UBI doesn't make sense
-$(eval $(call NORProfile,388-RD,armada-388-rd,256KiB))
-
-$(eval $(call MMCProfile,Solidrun-Clearfog-A1,armada-388-clearfog))
 
 ###
 ### Linksys
 ###
-
-# Caiman: Linksys WRT1200AC
-define Image/Build/Profile/Caiman/squashfs
-	$(call Image/Build/UbinizeImage,armada-385-linksys-caiman,,squashfs, -p 128KiB -m 2048 -s 512 -O 2048)
-	( \
-		dd if=$(KDIR)/uImage-armada-385-linksys-caiman bs=6144k conv=sync; \
-		dd if=$(KDIR)/$(IMG_PREFIX)-armada-385-linksys-caiman-squashfs-ubinized.bin \
-		bs=2048 conv=sync; \
-	) > $(BIN_DIR)/$(IMG_PREFIX)-armada-385-linksys-caiman-squashfs-factory.img
-endef
-
-# Cobra: Linksys WRT1900ACv2
-define Image/Build/Profile/Cobra/squashfs
-	$(call Image/Build/UbinizeImage,armada-385-linksys-cobra,,squashfs, -p 128KiB -m 2048 -s 512 -O 2048)
-	( \
-		dd if=$(KDIR)/uImage-armada-385-linksys-cobra bs=6144k conv=sync; \
-		dd if=$(KDIR)/$(IMG_PREFIX)-armada-385-linksys-cobra-squashfs-ubinized.bin \
-		bs=2048 conv=sync; \
-	) > $(BIN_DIR)/$(IMG_PREFIX)-armada-385-linksys-cobra-squashfs-factory.img
-endef
 
 # Mamba: Linksys WRT1900AC
 define Image/Build/Profile/Mamba/squashfs
@@ -196,40 +167,6 @@ define Image/Build/Profile/Mamba/squashfs
 		dd if=$(KDIR)/$(IMG_PREFIX)-armada-xp-linksys-mamba-squashfs-ubinized.bin \
 		bs=2048 conv=sync; \
 	) > $(BIN_DIR)/$(IMG_PREFIX)-armada-xp-linksys-mamba-squashfs-factory.img
-endef
-
-# Shelby: Linksys WRT1900ACS
-define Image/Build/Profile/Shelby/squashfs
-	$(call Image/Build/UbinizeImage,armada-385-linksys-shelby,,squashfs, -p 128KiB -m 2048 -s 512 -O 2048)
-	( \
-		dd if=$(KDIR)/uImage-armada-385-linksys-shelby bs=6144k conv=sync; \
-		dd if=$(KDIR)/$(IMG_PREFIX)-armada-385-linksys-shelby-squashfs-ubinized.bin \
-		bs=2048 conv=sync; \
-	) > $(BIN_DIR)/$(IMG_PREFIX)-armada-385-linksys-shelby-squashfs-factory.img
-endef
-
-# Rango: Linksys WRT3200ACM
-define Image/Build/Profile/Rango/squashfs
-	$(call Image/Build/UbinizeImage,armada-385-linksys-rango,,squashfs, -p 128KiB -m 2048 -s 512 -O 2048)
-	( \
-		dd if=$(KDIR)/uImage-armada-385-linksys-rango bs=6144k conv=sync; \
-		dd if=$(KDIR)/$(IMG_PREFIX)-armada-385-linksys-rango-squashfs-ubinized.bin \
-		bs=2048 conv=sync; \
-	) > $(BIN_DIR)/$(IMG_PREFIX)-armada-385-linksys-rango-squashfs-factory.img
-endef
-
-###
-### Marvell
-###
-
-# Marvell Armada 385 Access Point Development board (DB-88F6820-AP)
-define Image/Build/Profile/385-DB-AP/squashfs
-	$(call Image/Build/UbinizeImage,armada-385-db-ap,,squashfs, -p 256KiB -m 4096)
-	( \
-		dd if=$(KDIR)/uImage-armada-385-db-ap bs=8M conv=sync; \
-		dd if=$(KDIR)/$(IMG_PREFIX)-armada-385-db-ap-squashfs-ubinized.bin \
-		bs=4096 conv=sync; \
-	) > $(BIN_DIR)/$(IMG_PREFIX)-armada-385-db-ap-squashfs-factory.img
 endef
 
 

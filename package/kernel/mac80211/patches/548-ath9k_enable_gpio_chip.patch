@@ -18,7 +18,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  
  #include "common.h"
  #include "debug.h"
-@@ -1001,6 +1002,14 @@ struct ath_led {
+@@ -959,6 +960,14 @@ struct ath_led {
  	struct led_classdev cdev;
  };
  
@@ -33,7 +33,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  struct ath_softc {
  	struct ieee80211_hw *hw;
  	struct device *dev;
-@@ -1058,6 +1067,9 @@ struct ath_softc {
+@@ -1013,6 +1022,9 @@ struct ath_softc {
  #ifdef CPTCFG_MAC80211_LEDS
  	const char *led_default_trigger;
  	struct list_head leds;
@@ -45,7 +45,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  #ifdef CPTCFG_ATH9K_DEBUGFS
 --- a/drivers/net/wireless/ath/ath9k/gpio.c
 +++ b/drivers/net/wireless/ath/ath9k/gpio.c
-@@ -16,13 +16,135 @@
+@@ -16,13 +16,138 @@
  
  #include "ath9k.h"
  #include <linux/ath9k_platform.h>
@@ -117,36 +117,39 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
 +static void ath9k_register_gpio_chip(struct ath_softc *sc)
 +{
 +	struct ath9k_gpio_chip *gc;
-+	struct ath_hw *ah = sc->sc_ah;
++	u16 ng;
++
++	/* for now only AR9285 and AR9287 are recognized */
++	if (AR_SREV_9287(sc->sc_ah))
++		ng = AR9287_NUM_GPIO;
++	else if (AR_SREV_9285(sc->sc_ah))
++		ng = AR9285_NUM_GPIO;
++	else
++		return;
 +
 +	gc = kzalloc(sizeof(struct ath9k_gpio_chip), GFP_KERNEL);
 +	if (!gc)
 +		return;
 +
-+	gc->sc = sc;
 +	snprintf(gc->label, sizeof(gc->label), "ath9k-%s",
 +		 wiphy_name(sc->hw->wiphy));
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,5,0)
-+	gc->gchip.parent = sc->dev;
-+#else
-+	gc->gchip.dev = sc->dev;
-+#endif
 +	gc->gchip.label = gc->label;
 +	gc->gchip.base = -1;	/* determine base automatically */
-+	gc->gchip.ngpio = ah->caps.num_gpio_pins;
++	gc->gchip.ngpio = ng;
 +	gc->gchip.direction_input = ath9k_gpio_pin_cfg_input;
 +	gc->gchip.direction_output = ath9k_gpio_pin_cfg_output;
 +	gc->gchip.get_direction = ath9k_gpio_pin_get_dir;
 +	gc->gchip.get = ath9k_gpio_pin_get;
 +	gc->gchip.set = ath9k_gpio_pin_set;
++	gc->gchip.owner = THIS_MODULE;
 +
 +	if (gpiochip_add(&gc->gchip)) {
 +		kfree(gc);
 +		return;
 +	}
 +
-+	gc->gchip.owner = NULL;
 +	sc->gpiochip = gc;
++	gc->sc = sc;
 +}
 +
 +/* remove GPIO chip */
@@ -183,7 +186,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  static void ath_fill_led_pin(struct ath_softc *sc)
  {
  	struct ath_hw *ah = sc->sc_ah;
-@@ -80,6 +202,12 @@ static int ath_add_led(struct ath_softc
+@@ -80,6 +205,12 @@ static int ath_add_led(struct ath_softc
  	else
  		ath9k_hw_set_gpio(sc->sc_ah, gpio->gpio, gpio->active_low);
  
@@ -196,7 +199,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  	return 0;
  }
  
-@@ -136,17 +264,24 @@ void ath_deinit_leds(struct ath_softc *s
+@@ -136,12 +267,18 @@ void ath_deinit_leds(struct ath_softc *s
  
  	while (!list_empty(&sc->leds)) {
  		led = list_first_entry(&sc->leds, struct ath_led, list);
@@ -215,31 +218,18 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  }
  
  void ath_init_leds(struct ath_softc *sc)
- {
- 	struct ath9k_platform_data *pdata = sc->dev->platform_data;
-+	struct device_node *np = sc->dev->of_node;
- 	char led_name[32];
- 	const char *trigger;
- 	int i;
-@@ -156,6 +291,15 @@ void ath_init_leds(struct ath_softc *sc)
- 	if (AR_SREV_9100(sc->sc_ah))
- 		return;
+@@ -158,6 +295,8 @@ void ath_init_leds(struct ath_softc *sc)
  
-+	if (!np)
-+		ath9k_register_gpio_chip(sc);
-+
-+	/* setup gpio controller only if requested and skip the led_pin setup */
-+	if (of_property_read_bool(np, "gpio-controller")) {
-+		ath9k_register_gpio_chip(sc);
-+		return;
-+	}
-+
  	ath_fill_led_pin(sc);
  
- 	if (pdata && pdata->leds && pdata->num_leds)
-@@ -180,6 +324,7 @@ void ath_init_leds(struct ath_softc *sc)
- 	ath_create_gpio_led(sc, sc->sc_ah->led_pin, led_name, trigger,
- 			   !sc->sc_ah->config.led_active_high);
++	ath9k_register_gpio_chip(sc);
++
+ 	if (pdata && pdata->led_name)
+ 		strncpy(led_name, pdata->led_name, sizeof(led_name));
+ 	else
+@@ -178,6 +317,7 @@ void ath_init_leds(struct ath_softc *sc)
+ 	for (i = 0; i < pdata->num_leds; i++)
+ 		ath_create_platform_led(sc, &pdata->leds[i]);
  }
 +
  #endif

@@ -18,6 +18,6 @@ include $(INCLUDE_DIR)/target.mk
 
 KERNELNAME:=Image Image.gz dtbs
 
-DEFAULT_PACKAGES += uboot-envtools ethtool
+DEFAULT_PACKAGES += uboot-envtools ethtool hostapd
 
 $(eval $(call BuildTarget))

@@ -25,6 +25,8 @@ PKG_BUILD_PARALLEL:=1
 
 PKG_CONFIG_DEPENDS:= \
 	CONFIG_WPA_SUPPLICANT_NO_TIMESTAMP_CHECK \
+	CONFIG_PACKAGE_kmod-ath9k \
+	CONFIG_PACKAGE_kmod-cfg80211 \
 	CONFIG_PACKAGE_hostapd \
 	CONFIG_PACKAGE_hostapd-mini \
 	CONFIG_PACKAGE_kmod-hostap \
@@ -62,6 +64,8 @@ ifneq ($(CONFIG_DRIVER_11N_SUPPORT),)
 endif
 
 DRIVER_MAKEOPTS= \
+	CONFIG_ACS=$(CONFIG_PACKAGE_kmod-cfg80211) \
+	CONFIG_DRIVER_NL80211=$(CONFIG_PACKAGE_kmod-cfg80211) \
 	CONFIG_DRIVER_HOSTAP=$(CONFIG_PACKAGE_kmod-hostap) \
 	CONFIG_IEEE80211N=$(HOSTAPD_IEEE80211N) \
 	CONFIG_DRIVER_WEXT=$(CONFIG_DRIVER_WEXT_SUPPORT) \
@@ -96,7 +100,7 @@ ifdef CONFIG_USE_GLIBC
   TARGET_LDFLAGS_C += -lrt
 endif
 
-DRV_DEPENDS:=+libnl +libnl-tiny
+DRV_DEPENDS:=+PACKAGE_kmod-cfg80211:libnl-tiny
 
 define Package/hostapd/Default
   SECTION:=net
@@ -110,7 +114,7 @@ define Package/hostapd
 $(call Package/hostapd/Default)
   TITLE+= (full)
   VARIANT:=full
-  CONFLICTS:=wpad wpad-mini wpad-mesh +iw +wireless-tools +rfkill
+  CONFLICTS:=wpad wpad-mini wpad-mesh
 endef
 
 define Package/hostapd/description
@@ -294,9 +298,13 @@ TARGET_CPPFLAGS := \
 	$(if $(CONFIG_WPA_MSG_MIN_PRIORITY),-DCONFIG_MSG_MIN_PRIORITY=$(CONFIG_WPA_MSG_MIN_PRIORITY))
 
 TARGET_CFLAGS += -ffunction-sections -fdata-sections
-TARGET_LDFLAGS += -Wl,--gc-sections -lm -lnl-tiny
+TARGET_LDFLAGS += -Wl,--gc-sections
 ifeq ($(findstring supplicant,$(BUILD_VARIANT)),)
-  TARGET_LDFLAGS += -lubox -lubus -lm -lnl-tiny
+  TARGET_LDFLAGS += -lubox -lubus
+endif
+
+ifdef CONFIG_PACKAGE_kmod-cfg80211
+  TARGET_LDFLAGS += -lm -lnl-tiny
 endif
 
 define Build/RunMake
@@ -379,11 +387,6 @@ endef
 define Package/hostapd/install
 	$(call Install/hostapd,$(1))
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hostapd/hostapd $(1)/usr/sbin/
-
-	$(INSTALL_DIR) $(1)/lib/wifi $(1)/lib/netifd/wireless
-	$(INSTALL_DATA) ./files/lib/wifi/mac80211.sh $(1)/lib/wifi
-	$(INSTALL_BIN) ./files/lib/netifd/wireless/mac80211.sh $(1)/lib/netifd/wireless
-
 endef
 Package/hostapd-mini/install = $(Package/hostapd/install)
 

@@ -1,0 +1,34 @@
+--- a/backport-include/linux/phy.h
++++ b/backport-include/linux/phy.h
+@@ -19,7 +19,7 @@ static inline const char *phydev_name(co
+ #define mdiobus_is_registered_device LINUX_BACKPORT(mdiobus_is_registered_device)
+ static inline bool mdiobus_is_registered_device(struct mii_bus *bus, int addr)
+ {
+-	return bus->phy_map[addr];
++	return bus->mdio_map[addr];
+ }
+ 
+ #define phy_attached_print LINUX_BACKPORT(phy_attached_print)
+@@ -30,11 +30,13 @@ void phy_attached_info(struct phy_device
+ 
+ static inline int backport_mdiobus_register(struct mii_bus *bus)
+ {
++#if 0
+ 	bus->irq = kmalloc(sizeof(int) * PHY_MAX_ADDR, GFP_KERNEL);
+ 	if (!bus->irq) {
+ 		pr_err("mii_bus irq allocation failed\n");
+ 		return -ENOMEM;
+ 	}
++#endif
+ 
+ 	memset(bus->irq, PHY_POLL, sizeof(int) * PHY_MAX_ADDR);
+ 
+@@ -62,7 +64,7 @@ static inline void backport_mdiobus_unre
+ #define phydev_get_addr LINUX_BACKPORT(phydev_get_addr)
+ static inline int phydev_get_addr(struct phy_device *phydev)
+ {
+-	return phydev->addr;
++	return phydev->mdio.addr;
+ }
+ #else
+ #define phydev_get_addr LINUX_BACKPORT(phydev_get_addr)

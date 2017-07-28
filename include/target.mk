@@ -212,6 +212,11 @@ ifeq ($(DUMP),1)
     CPU_CFLAGS_generic = -mcpu=generic
     CPU_CFLAGS_cortex-a53 = -mcpu=cortex-a53
   endif
+  ifeq ($(ARCH),aarch64)
+    CPU_TYPE ?= armv8-a
+    CPU_CFLAGS_cortex-a53 = -march=armv8-a -mtune=cortex-a53
+    CPU_CFLAGS_armv8-a = -mcpu=armv8-a
+  endif
   ifeq ($(ARCH),arc)
     CPU_TYPE ?= arc700
     CPU_CFLAGS += -matomic

@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 ARCH:=arm
 BOARD:=mvebu
-BOARDNAME:=Marvell Armada 37x/38x/XP
+BOARDNAME:=Marvell Armada 37x/XP
 FEATURES:=usb pci pcie gpio nand squashfs
 CPU_TYPE:=cortex-a9
 CPU_SUBTYPE:=vfpv3

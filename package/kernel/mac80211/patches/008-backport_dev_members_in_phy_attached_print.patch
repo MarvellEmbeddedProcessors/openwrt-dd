@@ -1,0 +1,29 @@
+--- a/backport-include/linux/phy.h
++++ b/backport-include/linux/phy.h
+@@ -13,7 +13,7 @@
+ #define phydev_name LINUX_BACKPORT(phydev_name)
+ static inline const char *phydev_name(const struct phy_device *phydev)
+ {
+-	return dev_name(&phydev->dev);
++	return dev_name(&phydev->mdio.dev);
+ }
+ 
+ #define mdiobus_is_registered_device LINUX_BACKPORT(mdiobus_is_registered_device)
+--- a/compat/backport-4.5.c
++++ b/compat/backport-4.5.c
+@@ -107,13 +107,13 @@ EXPORT_SYMBOL_GPL(phy_attached_info);
+ void phy_attached_print(struct phy_device *phydev, const char *fmt, ...)
+ {
+ 	if (!fmt) {
+-		dev_info(&phydev->dev, ATTACHED_FMT "\n",
++		dev_info(&phydev->mdio.dev, ATTACHED_FMT "\n",
+ 			 phydev->drv->name, phydev_name(phydev),
+ 			 phydev->irq);
+ 	} else {
+ 		va_list ap;
+ 
+-		dev_info(&phydev->dev, ATTACHED_FMT,
++		dev_info(&phydev->mdio.dev, ATTACHED_FMT,
+ 			 phydev->drv->name, phydev_name(phydev),
+ 			 phydev->irq);
+ 

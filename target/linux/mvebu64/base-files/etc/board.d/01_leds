@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Copyright (C) 2017 OpenWrt.org
+#
+
+. /lib/functions/uci-defaults.sh
+. /lib/mvebu.sh
+
+board_config_update
+
+board=$(mvebu_board_name)
+
+case "$board" in
+*)
+	;;
+esac
+
+board_config_flush
+
+exit 0

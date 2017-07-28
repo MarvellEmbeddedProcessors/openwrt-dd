@@ -32,32 +32,11 @@ mvebu_board_detect() {
 	*"Marvell Armada XP GP Board")
 		name="armada-xp-gp"
 		;;
-	*"Linksys WRT1200AC")
-		name="armada-385-linksys-caiman"
-		;;
 	*"Linksys WRT1900AC")
 		name="armada-xp-linksys-mamba"
 		;;
-	*"Linksys WRT1900ACv2")
-		name="armada-385-linksys-cobra"
-		;;
-	*"Linksys WRT1900ACS")
-		name="armada-385-linksys-shelby"
-		;;
-	*"Linksys WRT3200ACM")
-		name="armada-385-linksys-rango"
-		;;
-	*"Marvell Armada 385 Access Point Development Board")
-		name="armada-385-db-ap"
-		;;
 	*"Marvell Armada XP Development Board DB-MV784MP-GP")
 		name="armada-xp-gp"
-		;;
-	*"SolidRun Clearfog Pro A1")
-		name="armada-388-clearfog-pro"
-		;;
-	*"SolidRun Clearfog Base A1")
-		name="armada-388-clearfog-base"
 		;;
 	esac
 

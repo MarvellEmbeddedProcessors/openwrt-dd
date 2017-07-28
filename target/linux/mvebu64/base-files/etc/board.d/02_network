@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2017 OpenWrt.org
 #
-
+CFG=/etc/board.json
 . /lib/functions/uci-defaults.sh
 . /lib/mvebu.sh
 

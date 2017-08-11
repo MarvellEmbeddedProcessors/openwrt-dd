@@ -15,7 +15,7 @@ armada-a8k-8040-db)
 	ucidef_set_interfaces_lan_wan "eth0 eth2 eth3" "eth1"
 	;;
 armada-a8k-MACCHIATOBin)
-	ucidef_set_interfaces_lan_wan "eth0 eth1 eth2 eth3" "eth2"
+	ucidef_set_interfaces_lan_wan "eth0 eth1 eth3" "eth2"
 	;;
 armada-a7k-7040-db)
 	ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"

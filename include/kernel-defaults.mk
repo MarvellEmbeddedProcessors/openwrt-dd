@@ -53,9 +53,17 @@ ifeq ($(strip $(CONFIG_EXTERNAL_KERNEL_TREE)),"")
 	touch $(LINUX_DIR)/.quilt_used
     endef
   else
-    define Kernel/Prepare/Default
-	git clone $(KERNEL_GIT_OPTS) $(CONFIG_KERNEL_GIT_CLONE_URI) $(LINUX_DIR)
-    endef
+	ifeq ($(CONFIG_KERNEL_GIT_APPLY_PATCHES),y)
+    	define Kernel/Prepare/Default
+		git clone $(KERNEL_GIT_OPTS) $(CONFIG_KERNEL_GIT_CLONE_URI) $(LINUX_DIR)
+		$(Kernel/Patch)
+		touch $(LINUX_DIR)/.quilt_used
+    	endef
+	else
+    	define Kernel/Prepare/Default
+		git clone $(KERNEL_GIT_OPTS) $(CONFIG_KERNEL_GIT_CLONE_URI) $(LINUX_DIR)
+    	endef
+	endif
   endif
 else
   define Kernel/Prepare/Default

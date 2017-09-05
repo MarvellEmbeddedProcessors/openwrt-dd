@@ -1,0 +1,64 @@
+From ae683df52e25ce5ebd0ac2d5a05640a644b1dead Mon Sep 17 00:00:00 2001
+From: Yan Markman <ymarkman@marvell.com>
+Date: Sun, 16 Oct 2016 00:22:32 +0300
+Subject: [PATCH 1/1] dts: a38x: a39x: pl310-cache disable double-linefill
+
+PL310 double-linefill is disabled in this commit, in order
+to overcome an instability issue encountered under heavy system stress.
+
+In continue to the deadlock that was generated while using ARM CA9 ACP
+and L2 PL310, double linefill imposes a dependency between an
+outstanding read and incoming write.
+This dependency violates PCIE overtaking rule which creates a deadlock
+with specific use cases.
+
+Change-Id: Ia340b905051da85c0dacb9fb54dbfd9cf7d37d28
+Signed-off-by: Yan Markman <ymarkman@marvell.com>
+Signed-off-by: Igal Liberman <igall@marvell.com>
+Signed-off-by: Nadav Haklai <nadavh@marvell.com>
+Cc: stable@vger.kernel.org
+Reviewed-on: http://vgitil04.il.marvell.com:8080/42874
+Tested-by: iSoC Platform CI <ykjenk@marvell.com>
+Reviewed-by: Hanna Hawa <hannah@marvell.com>
+---
+ arch/arm/boot/dts/armada-38x.dtsi | 5 +++--
+ arch/arm/boot/dts/armada-39x.dtsi | 5 +++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm/boot/dts/armada-38x.dtsi b/arch/arm/boot/dts/armada-38x.dtsi
+index a73cbe2..5825ef0 100644
+--- a/arch/arm/boot/dts/armada-38x.dtsi
++++ b/arch/arm/boot/dts/armada-38x.dtsi
+@@ -148,9 +148,10 @@
+ 				reg = <0x8000 0x1000>;
+ 				cache-unified;
+ 				cache-level = <2>;
+-				arm,double-linefill-incr = <1>;
++				/* Double-Prefetch Enable:<1 1 0>, disable:<0 0 0>(all 3 must be present) */
++				arm,double-linefill = <0>;
++				arm,double-linefill-incr = <0>;
+ 				arm,double-linefill-wrap = <0>;
+-				arm,double-linefill = <1>;
+ 				prefetch-data = <1>;
+ 			};
+ 
+diff --git a/arch/arm/boot/dts/armada-39x.dtsi b/arch/arm/boot/dts/armada-39x.dtsi
+index 6837494..274ac24 100644
+--- a/arch/arm/boot/dts/armada-39x.dtsi
++++ b/arch/arm/boot/dts/armada-39x.dtsi
+@@ -118,9 +118,10 @@
+ 				reg = <0x8000 0x1000>;
+ 				cache-unified;
+ 				cache-level = <2>;
+-				arm,double-linefill-incr = <1>;
++				/* Double-Prefetch Enable:<1 1 0>, disable:<0 0 0>(all 3 must be present) */
++				arm,double-linefill = <0>;
++				arm,double-linefill-incr = <0>;
+ 				arm,double-linefill-wrap = <0>;
+-				arm,double-linefill = <1>;
+ 				prefetch-data = <1>;
+ 			};
+ 
+-- 
+1.9.1
+

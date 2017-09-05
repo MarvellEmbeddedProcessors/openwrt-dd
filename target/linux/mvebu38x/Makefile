@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 ARCH:=arm
 BOARD:=mvebu38x
 BOARDNAME:=Marvell Armada 38x
-FEATURES:=usb pci pcie gpio nand squashfs
+FEATURES:=targz usb pci pcie gpio nand squashfs
 CPU_TYPE:=cortex-a9
 CPU_SUBTYPE:=vfpv3
 MAINTAINER:=Imre Kaloz <kaloz@openwrt.org>

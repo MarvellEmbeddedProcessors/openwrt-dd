@@ -78,7 +78,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  	struct mii_bus *mii_bus;
  	struct phy_device *phy_dev;
  	char bus_id[MII_BUS_ID_SIZE + 3];
- 	int i, err = 0;
+ 	int err = 0;
  
 -	if (ci->id == BCMA_CHIP_ID_BCM4707 ||
 -	    ci->id == BCMA_CHIP_ID_BCM53018)

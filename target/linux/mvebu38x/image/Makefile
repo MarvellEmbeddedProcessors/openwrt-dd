@@ -13,6 +13,7 @@ include $(INCLUDE_DIR)/image.mk
 LOADADDR:=0x00008000
 
 define Image/Build/DTB
+	$(call Image/BuildDTB,$(DTS_DIR)/$(1).dts,$(DTS_DIR)/$(1).dtb)
 	cp $(KDIR)/zImage$(2) $(KDIR)/zImage$(2)-$(1);
 	cat $(DTS_DIR)/$(1).dtb >> $(KDIR)/zImage$(2)-$(1);
 	$(call Image/BuildKernel/MkuImage, \
@@ -106,6 +107,19 @@ define MMCProfile
 	cp $(DTS_DIR)/$(2).dtb $(BIN_DIR)/$(1).dtb;
     ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
 	$(call Image/Build/Profile,$(1)/Initramfs)
+	# TODO: sdcard img procedure
+	#rm -f $(BIN_DIR)/$(1).bootscript
+	#mkimage -A arm -O linux -T script -C none -a 0 -e 0 -d cf-boot.script $(BIN_DIR)/$(1).bootscript
+	#rm -f $(BIN_DIR)/$(1).boot
+	#mkfs.fat -C $(BIN_DIR)/$(1).boot 16384
+	#mcopy -i $(BIN_DIR)/$(1).boot $(BIN_DIR)/$(1).dtb ::$(2)-pro.dtb
+	#mcopy -i $(BIN_DIR)/$(1).boot $(BIN_DIR)/$(1).dtb ::$(2)-base.dtb
+	#mcopy -i $(BIN_DIR)/$(1).boot $(KDIR)/zImage-$(2) ::zImage
+	#mcopy -i $(BIN_DIR)/$(1).boot $(BIN_DIR)/$(1).bootscript ::boot.scr
+	#./gen_mvebu_sdcard_img.sh $(BIN_DIR)/$(1).img \
+	#	"$(BIN_DIR)/uboot-mvebu38x-clearfog/openwrt-mvebu38x-clearfog-u-boot-spl.kwb" \
+	#	c 32768 $(BIN_DIR)/$(1).boot \
+	#	83 524288 $(KDIR)/root.squashfs
     endif
   endef
 
@@ -139,6 +153,7 @@ define MultiProfile
 	$(foreach profile, $(2),
 		$(call Image/Build/Profile/$(profile)/squashfs))
   endef
+
 endef
 
 # Boards with NAND, without subpages

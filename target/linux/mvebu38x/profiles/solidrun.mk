@@ -7,7 +7,7 @@
 
 define Profile/Solidrun-Clearfog-A1
   NAME:=SolidRun ClearFog A1 board
-  PACKAGES:= uboot-mvebu38x-clearfog
+  PACKAGES:= uboot-mvebu38x-clearfog swconfig
 endef
 
 define Profile/Solidrun-Clearfog-A1/Description

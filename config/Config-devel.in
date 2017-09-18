@@ -99,6 +99,14 @@ menuconfig DEVEL
 		  In this instance, the --branch option of git clone will be used.
 		  If unused, the clone's repository HEAD will be checked-out.
 
+	config KERNEL_GIT_APPLY_PATCHES
+		bool "Apply target patches to kernel source" if DEVEL
+		depends on (KERNEL_GIT_CLONE_URI != "")
+		default n
+		help
+		  If enabled, the cloned kernel source will be patched with
+		  target patches.
+
 	config BUILD_LOG
 		bool "Enable log files during build process" if DEVEL
 		help

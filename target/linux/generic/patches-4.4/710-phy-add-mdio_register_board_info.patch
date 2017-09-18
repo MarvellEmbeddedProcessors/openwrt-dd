@@ -18,10 +18,10 @@
 +						struct mdio_board_info *bi)
 +{
 +	if (strcmp(bus->id, bi->bus_id) ||
-+	    bi->phy_addr != phydev->addr)
++	    bi->phy_addr != phydev->mdio.addr)
 +	    return;
 +
-+	phydev->dev.platform_data = (void *) bi->platform_data;
++	phydev->mdio.dev.platform_data = (void *) bi->platform_data;
 +}
 +
  struct phy_device *mdiobus_scan(struct mii_bus *bus, int addr)

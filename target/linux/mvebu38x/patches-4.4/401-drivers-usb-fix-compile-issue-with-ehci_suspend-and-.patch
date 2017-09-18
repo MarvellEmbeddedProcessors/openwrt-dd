@@ -1,0 +1,49 @@
+From 10c2efe9cf3b68dfb39a3e96d5beca2b7999b3ae Mon Sep 17 00:00:00 2001
+From: Damir Samardzic <damir.samardzic@sartura.hr>
+Date: Mon, 28 Aug 2017 08:58:33 +0200
+Subject: [PATCH 2/3] drivers/usb: fix compile issue with ehci_suspend and
+ ehci_resume
+
+---
+ drivers/usb/host/ehci-orion.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/usb/host/ehci-orion.c b/drivers/usb/host/ehci-orion.c
+index 068343fce4a0..592a842503cc 100644
+--- a/drivers/usb/host/ehci-orion.c
++++ b/drivers/usb/host/ehci-orion.c
+@@ -355,6 +355,7 @@ static int ehci_orion_drv_remove(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_PM
+ static int ehci_orion_drv_suspend(struct platform_device *pdev,
+ 				  pm_message_t state)
+ {
+@@ -379,6 +380,7 @@ static int ehci_orion_drv_suspend(struct platform_device *pdev,
+ 
+ 	return 0;
+ }
++#endif
+ 
+ #define MV_USB_CORE_CMD_RESET_BIT           1
+ #define MV_USB_CORE_CMD_RESET_MASK          (1 << MV_USB_CORE_CMD_RESET_BIT)
+@@ -389,6 +391,7 @@ static int ehci_orion_drv_suspend(struct platform_device *pdev,
+ #define MV_USB_CORE_CMD_RUN_BIT             0
+ #define MV_USB_CORE_CMD_RUN_MASK            (1 << MV_USB_CORE_CMD_RUN_BIT)
+ 
++#ifdef CONFIG_PM
+ static int ehci_orion_drv_resume(struct platform_device *pdev)
+ {
+ 	struct usb_hcd *hcd = platform_get_drvdata(pdev);
+@@ -447,6 +450,7 @@ static int ehci_orion_drv_resume(struct platform_device *pdev)
+ 
+ 	return 0;
+ }
++#endif
+ 
+ static void ehci_orion_drv_shutdown(struct platform_device *pdev)
+ {
+-- 
+2.14.1
+

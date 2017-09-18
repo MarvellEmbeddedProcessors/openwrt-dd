@@ -15,7 +15,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
 
 --- a/drivers/net/phy/fixed_phy.c
 +++ b/drivers/net/phy/fixed_phy.c
-@@ -115,37 +115,6 @@ int fixed_phy_set_link_update(struct phy
+@@ -114,37 +114,6 @@ int fixed_phy_set_link_update(struct phy
  }
  EXPORT_SYMBOL_GPL(fixed_phy_set_link_update);
  
@@ -26,11 +26,11 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
 -	struct fixed_mdio_bus *fmb = &platform_fmb;
 -	struct fixed_phy *fp;
 -
--	if (!phydev || phydev->bus != fmb->mii_bus)
+-	if (!phydev || phydev->mdio.bus != fmb->mii_bus)
 -		return -EINVAL;
 -
 -	list_for_each_entry(fp, &fmb->phys, node) {
--		if (fp->addr == phydev->addr) {
+-		if (fp->addr == phydev->mdio.addr) {
 -			write_seqcount_begin(&fp->seqcount);
 -#define _UPD(x) if (changed->x) \
 -	fp->status.x = status->x
@@ -55,7 +55,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  		  int link_gpio)
 --- a/include/linux/phy_fixed.h
 +++ b/include/linux/phy_fixed.h
-@@ -23,9 +23,6 @@ extern void fixed_phy_del(int phy_addr);
+@@ -23,9 +23,6 @@ extern void fixed_phy_unregister(struct
  extern int fixed_phy_set_link_update(struct phy_device *phydev,
  			int (*link_update)(struct net_device *,
  					   struct fixed_phy_status *));
@@ -65,7 +65,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  #else
  static inline int fixed_phy_add(unsigned int irq, int phy_id,
  				struct fixed_phy_status *status,
-@@ -50,12 +47,6 @@ static inline int fixed_phy_set_link_upd
+@@ -49,12 +46,6 @@ static inline int fixed_phy_set_link_upd
  {
  	return -ENODEV;
  }
@@ -78,3 +78,13 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  #endif /* CONFIG_FIXED_PHY */
  
  #endif /* __PHY_FIXED_H */
+--- a/drivers/net/ethernet/marvell/mvneta.c
++++ b/drivers/net/ethernet/marvell/mvneta.c
+@@ -2969,7 +2969,6 @@ static int mvneta_fixed_link_update(stru
+ 	changed.link = 1;
+ 	changed.speed = 1;
+ 	changed.duplex = 1;
+-	fixed_phy_update_state(phy, &status, &changed);
+ 	return 0;
+ }
+ 

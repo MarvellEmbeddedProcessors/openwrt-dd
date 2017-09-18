@@ -78,7 +78,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  	struct mii_bus *mii_bus;
  	struct phy_device *phy_dev;
  	char bus_id[MII_BUS_ID_SIZE + 3];
- 	int i, err = 0;
+ 	int err = 0;
  
 -	if (ci->id == BCMA_CHIP_ID_BCM4707 ||
 -	    ci->id == BCMA_CHIP_ID_BCM53018)
@@ -86,7 +86,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  		return bgmac_fixed_phy_register(bgmac);
  
  	mii_bus = mdiobus_alloc();
-@@ -1553,7 +1557,6 @@ static void bgmac_mii_unregister(struct
+@@ -1542,7 +1546,6 @@ static void bgmac_mii_unregister(struct
  /* http://bcm-v4.sipsolutions.net/mac-gbit/gmac/chipattach */
  static int bgmac_probe(struct bcma_device *core)
  {
@@ -94,7 +94,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  	struct net_device *net_dev;
  	struct bgmac *bgmac;
  	struct ssb_sprom *sprom = &core->bus->sprom;
-@@ -1634,8 +1637,7 @@ static int bgmac_probe(struct bcma_devic
+@@ -1623,8 +1626,7 @@ static int bgmac_probe(struct bcma_devic
  	bgmac_chip_reset(bgmac);
  
  	/* For Northstar, we have to take all GMAC core out of reset */

@@ -28,7 +28,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  
  #include "swphy.h"
  
-@@ -35,6 +36,7 @@ struct fixed_mdio_bus {
+@@ -34,6 +35,7 @@ struct fixed_mdio_bus {
  struct fixed_phy {
  	int addr;
  	struct phy_device *phydev;
@@ -36,7 +36,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  	struct fixed_phy_status status;
  	int (*link_update)(struct net_device *, struct fixed_phy_status *);
  	struct list_head node;
-@@ -59,13 +61,21 @@ static int fixed_mdio_read(struct mii_bu
+@@ -58,13 +60,21 @@ static int fixed_mdio_read(struct mii_bu
  
  	list_for_each_entry(fp, &fmb->phys, node) {
  		if (fp->addr == phy_addr) {
@@ -65,15 +65,15 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  		}
  	}
  
-@@ -117,6 +127,7 @@ int fixed_phy_update_state(struct phy_de
+@@ -116,6 +126,7 @@ int fixed_phy_update_state(struct phy_de
  
  	list_for_each_entry(fp, &fmb->phys, node) {
- 		if (fp->addr == phydev->addr) {
+ 		if (fp->addr == phydev->mdio.addr) {
 +			write_seqcount_begin(&fp->seqcount);
  #define _UPD(x) if (changed->x) \
  	fp->status.x = status->x
  			_UPD(link);
-@@ -126,6 +137,7 @@ int fixed_phy_update_state(struct phy_de
+@@ -125,6 +136,7 @@ int fixed_phy_update_state(struct phy_de
  			_UPD(asym_pause);
  #undef _UPD
  			fixed_phy_update(fp);
@@ -81,12 +81,12 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  			return 0;
  		}
  	}
-@@ -150,6 +162,8 @@ int fixed_phy_add(unsigned int irq, int
+@@ -149,6 +161,8 @@ int fixed_phy_add(unsigned int irq, int
  	if (!fp)
  		return -ENOMEM;
  
 +	seqcount_init(&fp->seqcount);
 +
- 	fmb->irqs[phy_addr] = irq;
+ 	fmb->mii_bus->irq[phy_addr] = irq;
  
  	fp->addr = phy_addr;

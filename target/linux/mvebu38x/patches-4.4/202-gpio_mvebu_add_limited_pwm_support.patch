@@ -23,9 +23,9 @@ Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 
 --- a/drivers/gpio/Kconfig
 +++ b/drivers/gpio/Kconfig
-@@ -295,6 +295,11 @@ config GPIO_MVEBU
- 	depends on OF
- 	select GENERIC_IRQ_CHIP
+@@ -311,6 +311,11 @@ config GPIO_MVEBU_A3700
+ 	  interrupt controllers are cascaded to
+ 	  root gic interrupt controller.
  
 +config GPIO_MVEBU_PWM
 +	def_bool y
@@ -37,10 +37,10 @@ Signed-off-by: Andrew Lunn <andrew@lunn.ch>
  	depends on ARCH_MXC
 --- a/drivers/gpio/Makefile
 +++ b/drivers/gpio/Makefile
-@@ -67,6 +67,7 @@ obj-$(CONFIG_GPIO_MPC5200)	+= gpio-mpc52
- obj-$(CONFIG_GPIO_MPC8XXX)	+= gpio-mpc8xxx.o
+@@ -68,6 +68,7 @@ obj-$(CONFIG_GPIO_MPC8XXX)	+= gpio-mpc8x
  obj-$(CONFIG_GPIO_MSIC)		+= gpio-msic.o
  obj-$(CONFIG_GPIO_MVEBU)        += gpio-mvebu.o
+ obj-$(CONFIG_GPIO_MVEBU_A3700)	+= gpio-armada-3700.o
 +obj-$(CONFIG_GPIO_MVEBU_PWM)	+= gpio-mvebu-pwm.o
  obj-$(CONFIG_GPIO_MXC)		+= gpio-mxc.o
  obj-$(CONFIG_GPIO_MXS)		+= gpio-mxs.o
@@ -323,9 +323,9 @@ Signed-off-by: Andrew Lunn <andrew@lunn.ch>
  	struct irq_chip_type *ct;
 -	struct clk *clk;
  	unsigned int ngpios;
+ 	unsigned int gpio_base = -1;
  	int soc_variant;
- 	int i, cpu, id;
-@@ -691,10 +677,10 @@ static int mvebu_gpio_probe(struct platf
+@@ -695,10 +681,10 @@ static int mvebu_gpio_probe(struct platf
  		return id;
  	}
  
@@ -339,7 +339,7 @@ Signed-off-by: Andrew Lunn <andrew@lunn.ch>
  
  	mvchip->soc_variant = soc_variant;
  	mvchip->chip.label = dev_name(&pdev->dev);
-@@ -828,7 +814,8 @@ static int mvebu_gpio_probe(struct platf
+@@ -835,7 +821,8 @@ static int mvebu_gpio_probe(struct platf
  		goto err_generic_chip;
  	}
  

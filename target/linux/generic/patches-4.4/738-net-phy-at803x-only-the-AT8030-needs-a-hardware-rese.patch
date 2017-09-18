@@ -35,8 +35,8 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
 -
 -				at803x_context_restore(phydev, &context);
 -
--				dev_dbg(&phydev->dev, "%s(): phy was reset\n",
--					__func__);
+-				phydev_dbg(phydev, "%s(): phy was reset\n",
+-					   __func__);
 -				priv->phy_reset = true;
 -			}
 -		} else {
@@ -71,7 +71,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  	.set_wol		= at803x_set_wol,
  	.get_wol		= at803x_get_wol,
  	.suspend		= at803x_suspend,
-@@ -468,7 +465,6 @@ static struct phy_driver at803x_driver[]
+@@ -462,7 +459,6 @@ static struct phy_driver at803x_driver[]
  	.phy_id_mask		= AT803X_PHY_ID_MASK,
  	.probe			= at803x_probe,
  	.config_init		= at803x_config_init,

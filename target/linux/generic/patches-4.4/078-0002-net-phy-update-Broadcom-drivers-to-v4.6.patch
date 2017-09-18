@@ -27,8 +27,8 @@ Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
  	phy_read(phydev, MII_BCM7XXX_AUX_MODE);
  
  	/* set shadow mode 2 */
-@@ -318,6 +318,22 @@ static int bcm7xxx_suspend(struct phy_de
- 	.driver		= { .owner = THIS_MODULE },			\
+@@ -317,6 +317,22 @@ static int bcm7xxx_suspend(struct phy_de
+ 	.resume		= bcm7xxx_28nm_resume,				\
  }
  
 +#define BCM7XXX_40NM_EPHY(_oui, _name)					\
@@ -50,7 +50,7 @@ Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
  static struct phy_driver bcm7xxx_driver[] = {
  	BCM7XXX_28NM_GPHY(PHY_ID_BCM7250, "Broadcom BCM7250"),
  	BCM7XXX_28NM_GPHY(PHY_ID_BCM7364, "Broadcom BCM7364"),
-@@ -325,51 +341,19 @@ static struct phy_driver bcm7xxx_driver[
+@@ -324,49 +340,19 @@ static struct phy_driver bcm7xxx_driver[
  	BCM7XXX_28NM_GPHY(PHY_ID_BCM7439, "Broadcom BCM7439"),
  	BCM7XXX_28NM_GPHY(PHY_ID_BCM7439_2, "Broadcom BCM7439 (2)"),
  	BCM7XXX_28NM_GPHY(PHY_ID_BCM7445, "Broadcom BCM7445"),
@@ -66,7 +66,6 @@ Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
 -	.read_status    = genphy_read_status,
 -	.suspend        = bcm7xxx_suspend,
 -	.resume         = bcm7xxx_config_init,
--	.driver         = { .owner = THIS_MODULE },
 -}, {
 -	.phy_id         = PHY_ID_BCM7429,
 -	.phy_id_mask    = 0xfffffff0,
@@ -79,7 +78,6 @@ Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
 -	.read_status    = genphy_read_status,
 -	.suspend        = bcm7xxx_suspend,
 -	.resume         = bcm7xxx_config_init,
--	.driver         = { .owner = THIS_MODULE },
 -}, {
 -	.phy_id         = PHY_ID_BCM7435,
 -	.phy_id_mask    = 0xfffffff0,
@@ -87,11 +85,11 @@ Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
 -	.features       = PHY_BASIC_FEATURES |
 -			  SUPPORTED_Pause | SUPPORTED_Asym_Pause,
 -	.flags          = PHY_IS_INTERNAL,
--	.config_init    = bcm7xxx_config_init,
--	.config_aneg    = genphy_config_aneg,
--	.read_status    = genphy_read_status,
--	.suspend        = bcm7xxx_suspend,
--	.resume         = bcm7xxx_config_init,
+-	.config_init	= bcm7xxx_config_init,
+-	.config_aneg	= genphy_config_aneg,
+-	.read_status	= genphy_read_status,
+-	.suspend	= bcm7xxx_suspend,
+-	.resume		= bcm7xxx_config_init,
 -	.driver         = { .owner = THIS_MODULE },
 -} };
 +	BCM7XXX_40NM_EPHY(PHY_ID_BCM7346, "Broadcom BCM7346"),

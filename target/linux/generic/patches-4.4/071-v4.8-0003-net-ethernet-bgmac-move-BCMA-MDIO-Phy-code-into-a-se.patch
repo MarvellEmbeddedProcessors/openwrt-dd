@@ -505,7 +505,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  {
  	struct fixed_phy_status fphy_status = {
  		.link = 1,
-@@ -1614,81 +1460,24 @@ static int bgmac_fixed_phy_register(stru
+@@ -1614,70 +1460,24 @@ static int bgmac_fixed_phy_register(stru
  	return err;
  }
  
@@ -515,7 +515,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
 -	struct mii_bus *mii_bus;
  	struct phy_device *phy_dev;
  	char bus_id[MII_BUS_ID_SIZE + 3];
--	int i, err = 0;
+-	int err = 0;
 -
 -	if (bgmac_is_bcm4707_family(bgmac))
 -		return bgmac_fixed_phy_register(bgmac);
@@ -533,18 +533,10 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
 -	mii_bus->parent = &bgmac->core->dev;
 -	mii_bus->phy_mask = ~(1 << bgmac->phyaddr);
 -
--	mii_bus->irq = kmalloc_array(PHY_MAX_ADDR, sizeof(int), GFP_KERNEL);
--	if (!mii_bus->irq) {
--		err = -ENOMEM;
--		goto err_free_bus;
--	}
--	for (i = 0; i < PHY_MAX_ADDR; i++)
--		mii_bus->irq[i] = PHY_POLL;
--
 -	err = mdiobus_register(mii_bus);
 -	if (err) {
 -		dev_err(bgmac->dev, "Registration of mii bus failed\n");
--		goto err_free_irq;
+-		goto err_free_bus;
 -	}
 -
 -	bgmac->mii_bus = mii_bus;
@@ -566,8 +558,6 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
 -
 -err_unregister_bus:
 -	mdiobus_unregister(mii_bus);
--err_free_irq:
--	kfree(mii_bus->irq);
 -err_free_bus:
 -	mdiobus_free(mii_bus);
 -	return err;
@@ -578,7 +568,6 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
 -	struct mii_bus *mii_bus = bgmac->mii_bus;
 -
 -	mdiobus_unregister(mii_bus);
--	kfree(mii_bus->irq);
 -	mdiobus_free(mii_bus);
 +	return 0;
  }
@@ -591,7 +580,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  static int bgmac_probe(struct bcma_device *core)
  {
  	struct net_device *net_dev;
-@@ -1809,9 +1598,6 @@ static int bgmac_probe(struct bcma_devic
+@@ -1798,9 +1598,6 @@ static int bgmac_probe(struct bcma_devic
  	if (bcm47xx_nvram_getenv("et0_no_txint", NULL, 0) == 0)
  		bgmac->int_mask &= ~BGMAC_IS_TX_MASK;
  
@@ -601,7 +590,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  	bgmac->has_robosw = !!(core->bus->sprom.boardflags_lo &
  			       BGMAC_BFL_ENETROBO);
  	if (bgmac->has_robosw)
-@@ -1822,10 +1608,25 @@ static int bgmac_probe(struct bcma_devic
+@@ -1811,10 +1608,25 @@ static int bgmac_probe(struct bcma_devic
  
  	netif_napi_add(net_dev, &bgmac->napi, bgmac_poll, BGMAC_WEIGHT);
  
@@ -629,7 +618,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  	}
  
  	net_dev->features = NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
-@@ -1835,18 +1636,19 @@ static int bgmac_probe(struct bcma_devic
+@@ -1824,18 +1636,19 @@ static int bgmac_probe(struct bcma_devic
  	err = register_netdev(bgmac->net_dev);
  	if (err) {
  		dev_err(bgmac->dev, "Cannot register net device\n");
@@ -652,7 +641,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  err_netdev_free:
  	bcma_set_drvdata(core, NULL);
  	free_netdev(net_dev);
-@@ -1859,7 +1661,8 @@ static void bgmac_remove(struct bcma_dev
+@@ -1848,7 +1661,8 @@ static void bgmac_remove(struct bcma_dev
  	struct bgmac *bgmac = bcma_get_drvdata(core);
  
  	unregister_netdev(bgmac->net_dev);

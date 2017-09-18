@@ -100,7 +100,7 @@ Signed-off-by: Brian Norris <computersforpeace@gmail.com>
  	int possible_nvram_sizes[] = { 0x8000, 0xF000, 0x10000, };
  	int err;
  
-@@ -182,54 +241,14 @@ static int bcm47xxpart_parse(struct mtd_
+@@ -182,59 +241,17 @@ static int bcm47xxpart_parse(struct mtd_
  
  		/* TRX */
  		if (buf[0x000 / 4] == TRX_MAGIC) {
@@ -152,12 +152,21 @@ Signed-off-by: Brian Norris <computersforpeace@gmail.com>
 -
 -			last_trx_part = curr_part - 1;
 -
- 			/* Jump to the end of TRX */
+-			/*
+-			 * We have whole TRX scanned, skip to the next part. Use
+-			 * roundown (not roundup), as the loop will increase
+-			 * offset in next step.
+-			 */
+-			offset = rounddown(offset + trx->length, blocksize);
++			/* Jump to the end of TRX */
 +			trx = (struct trx_header *)buf;
- 			offset = roundup(offset + trx->length, blocksize);
- 			/* Next loop iteration will increase the offset */
- 			offset -= blocksize;
-@@ -307,9 +326,17 @@ static int bcm47xxpart_parse(struct mtd_
++			offset = roundup(offset + trx->length, blocksize);
++			/* Next loop iteration will increase the offset */
++			offset -= blocksize;
+ 			continue;
+ 		}
+ 
+@@ -309,9 +326,17 @@ static int bcm47xxpart_parse(struct mtd_
  				       parts[i + 1].offset : master->size;
  
  		parts[i].size = next_part_offset - parts[i].offset;

@@ -31,7 +31,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  comment "MII PHY device drivers"
  
  config AQUANTIA_PHY
-@@ -205,6 +208,7 @@ config RTL8306_PHY
+@@ -210,6 +213,7 @@ config RTL8306_PHY
  config FIXED_PHY
  	tristate "Driver for MDIO Bus/PHY emulation with fixed speed/link PHYs"
  	depends on PHYLIB
@@ -44,8 +44,8 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
 @@ -1,6 +1,7 @@
  # Makefile for Linux PHY drivers
  
--libphy-objs			:= phy.o phy_device.o mdio_bus.o
-+libphy-y			:= phy.o phy_device.o mdio_bus.o
+-libphy-objs			:= phy.o phy_device.o mdio_bus.o mdio_device.o
++libphy-y			:= phy.o phy_device.o mdio_bus.o mdio_device.o
 +libphy-$(CONFIG_SWPHY)		+= swphy.o
  
  obj-$(CONFIG_MDIO_BOARDINFO)	+= mdio-boardinfo.o
@@ -61,7 +61,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  #define MII_REGS_NUM 29
  
  struct fixed_mdio_bus {
-@@ -49,101 +51,10 @@ static struct fixed_mdio_bus platform_fm
+@@ -48,101 +50,10 @@ static struct fixed_mdio_bus platform_fm
  
  static int fixed_phy_update_regs(struct fixed_phy *fp)
  {

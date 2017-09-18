@@ -37,7 +37,7 @@ endef
 define Build/boot-img
 	rm -f $@.boot
 	mkfs.fat -C $@.boot 16384
-	$(foreach dts,$(DEVICE_DTS), mcopy -i $@.boot $(DTS_DIR)/$(dts).dtb ::$(dts).dtb)
+	$(foreach dts,$(DEVICE_DTS), mcopy -i $@.boot $(DTS_DIR)/$(dts).dtb ::$(dts).dtb;)
 	mcopy -i $@.boot $(IMAGE_KERNEL) ::zImage
 	mcopy -i $@.boot $@.bootscript ::boot.scr
 endef
@@ -93,7 +93,7 @@ endef
 
 define Device/linksys
   DEVICE_TITLE := Linksys $(1)
-  DEVICE_PACKAGES := kmod-mwlwifi wpad-mini
+  DEVICE_PACKAGES := kmod-mwlwifi wpad-mini swconfig
 endef
 
 define Device/armada-385-linksys
@@ -155,7 +155,7 @@ define Device/armada-388-clearfog-pro
   KERNEL_INSTALL := 1
   KERNEL := dtb | kernel-bin
   DEVICE_TITLE := SolidRun ClearFog Pro
-  DEVICE_PACKAGES := mkf2fs e2fsprogs kmod-fs-vfat kmod-nls-cp437 kmod-nls-iso8859-1
+  DEVICE_PACKAGES := mkf2fs e2fsprogs swconfig kmod-fs-vfat kmod-nls-cp437 kmod-nls-iso8859-1
   IMAGES := sdcard.img.gz
   IMAGE/sdcard.img.gz := boot-scr-cfpro | boot-img | sdcard-img | gzip | append-metadata
   IMAGE_NAME = $$(IMAGE_PREFIX)-$$(2)
@@ -174,6 +174,7 @@ define Device/armada-388-clearfog-base
   IMAGES := sdcard.img.gz
   IMAGE/sdcard.img.gz := boot-scr-cfbase | boot-img | sdcard-img | gzip
   IMAGE_NAME = $$(IMAGE_PREFIX)-$$(2)
+  DEVICE_DTS := armada-388-clearfog-pro armada-388-clearfog-base
 endef
 TARGET_DEVICES += armada-388-clearfog-base
 

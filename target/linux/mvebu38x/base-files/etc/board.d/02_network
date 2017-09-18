@@ -16,17 +16,17 @@ armada-385-linksys-caiman|\
 armada-385-linksys-cobra|\
 armada-385-linksys-rango|\
 armada-385-linksys-shelby)
-	ucidef_set_interfaces_lan_wan "eth0.1" "eth1.2"
+	ucidef_set_interfaces_lan_wan "eth1.1" "eth0.2"
 	ucidef_add_switch "switch0" \
-		"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "5@eth0" "4:wan" "6@eth1"
+		"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "6@eth0" "4:wan" "5@eth1"
 	;;
 armada-385-db-ap)
 	ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"
 	;;
 armada-388-clearfog-pro)
-	ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"
+	ucidef_set_interfaces_lan_wan "eth1" "eth2 eth0"
 		ucidef_add_switch "switch0" \
-			"0:lan:5" "1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1" "5u@eth0" "6:lan:6"
+			"0:lan:5" "1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1" "5u@eth1" "6:lan:6"
 	;;
 armada-388-clearfog-base)
 	ucidef_set_interfaces_lan_wan "eth0" "eth1"

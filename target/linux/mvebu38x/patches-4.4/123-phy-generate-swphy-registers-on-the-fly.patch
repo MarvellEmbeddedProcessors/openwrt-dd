@@ -28,9 +28,9 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
 -#define MII_REGS_NUM 29
 -
  struct fixed_mdio_bus {
- 	int irqs[PHY_MAX_ADDR];
  	struct mii_bus *mii_bus;
-@@ -36,7 +34,6 @@ struct fixed_mdio_bus {
+ 	struct list_head phys;
+@@ -35,7 +33,6 @@ struct fixed_mdio_bus {
  
  struct fixed_phy {
  	int addr;
@@ -38,7 +38,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  	struct phy_device *phydev;
  	struct fixed_phy_status status;
  	int (*link_update)(struct net_device *, struct fixed_phy_status *);
-@@ -49,12 +46,10 @@ static struct fixed_mdio_bus platform_fm
+@@ -48,12 +45,10 @@ static struct fixed_mdio_bus platform_fm
  	.phys = LIST_HEAD_INIT(platform_fmb.phys),
  };
  
@@ -52,7 +52,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  }
  
  static int fixed_mdio_read(struct mii_bus *bus, int phy_addr, int reg_num)
-@@ -62,29 +57,15 @@ static int fixed_mdio_read(struct mii_bu
+@@ -61,29 +56,15 @@ static int fixed_mdio_read(struct mii_bu
  	struct fixed_mdio_bus *fmb = bus->priv;
  	struct fixed_phy *fp;
  
@@ -84,7 +84,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  		}
  	}
  
-@@ -144,7 +125,7 @@ int fixed_phy_update_state(struct phy_de
+@@ -143,7 +124,7 @@ int fixed_phy_update_state(struct phy_de
  			_UPD(pause);
  			_UPD(asym_pause);
  #undef _UPD
@@ -93,16 +93,16 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  			return 0;
  		}
  	}
-@@ -169,8 +150,6 @@ int fixed_phy_add(unsigned int irq, int
+@@ -168,8 +149,6 @@ int fixed_phy_add(unsigned int irq, int
  	if (!fp)
  		return -ENOMEM;
  
 -	memset(fp->regs, 0xFF,  sizeof(fp->regs[0]) * MII_REGS_NUM);
 -
- 	fmb->irqs[phy_addr] = irq;
+ 	fmb->mii_bus->irq[phy_addr] = irq;
  
  	fp->addr = phy_addr;
-@@ -184,7 +163,7 @@ int fixed_phy_add(unsigned int irq, int
+@@ -183,7 +162,7 @@ int fixed_phy_add(unsigned int irq, int
  			goto err_regs;
  	}
  

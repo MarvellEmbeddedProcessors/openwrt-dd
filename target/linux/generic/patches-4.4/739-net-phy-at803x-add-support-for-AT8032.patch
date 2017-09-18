@@ -27,10 +27,10 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  		goto does_not_require_reset_workaround;
  
  	gpiod_reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
-@@ -478,6 +480,27 @@ static struct phy_driver at803x_driver[]
- 	.driver			= {
- 		.owner = THIS_MODULE,
- 	},
+@@ -469,6 +471,27 @@ static struct phy_driver at803x_driver[]
+ 	.read_status		= genphy_read_status,
+ 	.ack_interrupt		= &at803x_ack_interrupt,
+ 	.config_intr		= &at803x_config_intr,
 +}, {
 +	/* ATHEROS 8032 */
 +	.phy_id			= ATH8032_PHY_ID,
@@ -55,7 +55,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  } };
  
  module_phy_driver(at803x_driver);
-@@ -485,6 +508,7 @@ module_phy_driver(at803x_driver);
+@@ -476,6 +499,7 @@ module_phy_driver(at803x_driver);
  static struct mdio_device_id __maybe_unused atheros_tbl[] = {
  	{ ATH8030_PHY_ID, AT803X_PHY_ID_MASK },
  	{ ATH8031_PHY_ID, AT803X_PHY_ID_MASK },

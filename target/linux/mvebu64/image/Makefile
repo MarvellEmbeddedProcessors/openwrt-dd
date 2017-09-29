@@ -50,7 +50,7 @@ endef
 define Image/BuildKernel/Profile/armada-3720-db
 	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-3720-db-Image
 	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-3720-db-Image.gz
-	cp $(DTS_DIR)/marvell/armada-3720-db-sfp.dtb $(BIN_DIR)/armada-3720-db-sfp.dtb
+	cp $(DTS_DIR)/marvell/armada-3720-db-C.dtb $(BIN_DIR)/marvell/armada-3720-db-C.dtb
 ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-3720-db-Image-initramfs
 endif

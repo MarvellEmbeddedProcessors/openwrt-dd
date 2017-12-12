@@ -30,7 +30,7 @@ include $(INCLUDE_DIR)/kernel.mk
 define Package/valgrind
   SECTION:=devel
   CATEGORY:=Development
-  DEPENDS:=@mips||mipsel||i386||x86_64||powerpc||arm_v7 +libpthread +librt
+  DEPENDS:=@mips||mipsel||i386||x86_64||powerpc||arm_v7||aarch64 +libpthread +librt
   TITLE:=debugging and profiling tools for Linux
   URL:=http://www.valgrind.org
 endef
@@ -84,7 +84,7 @@ CPU := $(patsubst x86_64,amd64,$(patsubst x86,i386,$(patsubst um,$(ARCH),$(LINUX
 CONFIGURE_VARS += \
 	UNAME_R=$(LINUX_VERSION)
 
-ifeq ($(ARCH),x86_64)
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
 	CONFIGURE_ARGS += \
 		--enable-only64bit
 	BITS := 64bit
@@ -92,6 +92,12 @@ else
 	CONFIGURE_ARGS += \
 		--enable-only32bit
 	BITS := 32bit
+endif
+
+ifeq ($(CPU),arm64)
+	CPUA:=arm
+else
+	CPUA:=$(CPU)
 endif
 
 CONFIGURE_ARGS += \
@@ -113,7 +119,7 @@ define Package/valgrind/install
 		./files/default.supp \
 		$(PKG_INSTALL_DIR)/usr/lib/valgrind/none-* \
 		$(PKG_INSTALL_DIR)/usr/lib/valgrind/vgpreload_core*.so \
-		$(PKG_INSTALL_DIR)/usr/lib/valgrind/$(CPU)-*.xml \
+		$(PKG_INSTALL_DIR)/usr/lib/valgrind/$(CPUA)-*.xml \
 		$(PKG_INSTALL_DIR)/usr/lib/valgrind/$(BITS)-core*.xml \
 		$(PKG_INSTALL_DIR)/usr/lib/valgrind/$(BITS)-linux*.xml \
 		$(PKG_INSTALL_DIR)/usr/lib/valgrind/memcheck-* \

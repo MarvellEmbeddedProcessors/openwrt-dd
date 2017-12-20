@@ -20,7 +20,7 @@ endef
 define Image/BuildKernel/Profile/armada-a8k-8040-db
 	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-a8k-8040-db-Image
 	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-a8k-8040-db-Image.gz
-	cp $(DTS_DIR)/marvell/armada-8040-db-A.dtb $(BIN_DIR)/armada-a8k-8040-db-A.dtb
+	cp $(DTS_DIR)/marvell/armada-8040-db.dtb $(BIN_DIR)/armada-a8k-8040-db-A.dtb
 ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-a8k-8040-db-Image-initramfs
 endif
@@ -40,7 +40,7 @@ endef
 define Image/BuildKernel/Profile/armada-a7k-7040-db
 	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image
 	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image.gz
-	cp $(DTS_DIR)/marvell/armada-7040-db-A.dtb $(BIN_DIR)/armada-7040-db-A.dtb
+	cp $(DTS_DIR)/marvell/armada-7040-db.dtb $(BIN_DIR)/armada-7040-db-A.dtb
 ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-a7k-7040-db-Image-initramfs
 endif

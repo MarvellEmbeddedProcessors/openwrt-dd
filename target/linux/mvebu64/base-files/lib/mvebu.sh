@@ -13,10 +13,10 @@ mvebu_board_detect() {
 	machine=$(cat /proc/device-tree/model)
 
 	case "$machine" in
-	*"Marvell Armada-8040 development board A setup")
+	*"Marvell Armada-8040 development board"*"A"*" setup")
 		name="armada-a8k-8040-db"
 		;;
-	*"Marvell Armada-7040 development board A setup")
+	*"Marvell Armada-7040 development board"*"A"*" setup")
 		name="armada-a7k-7040-db"
 		;;
 	*"Marvell Armada 3720 Development Board DB-88F3720-DDR3")

@@ -8,6 +8,8 @@
 # Disable RPS by default
 [[ -z $(uci -q get network.globals.default_ps) ]] || [[ $(uci get network.globals.default_ps) == '1' ]] && $(uci set network.globals.default_ps=0)
 
+uci set network.globals.preserve_ps=1
+
 uci commit network
 
 exit 0

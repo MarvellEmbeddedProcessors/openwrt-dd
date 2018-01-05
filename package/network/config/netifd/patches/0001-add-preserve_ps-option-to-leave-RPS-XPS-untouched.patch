@@ -1,0 +1,97 @@
+From 76e0ad1a79dcccd33e9d438c7bbf7c0f53d4ff61 Mon Sep 17 00:00:00 2001
+From: Damir Samardzic <damir.samardzic@sartura.hr>
+Date: Fri, 5 Jan 2018 13:10:49 +0100
+Subject: [PATCH] add preserve_ps option to leave RPS/XPS untouched
+
+Signed-off-by: Damir Samardzic <damir.samardzic@sartura.hr>
+---
+ config.c       |  6 ++++++
+ netifd.h       |  2 ++
+ system-linux.c | 21 +++++++++++++++------
+ 3 files changed, 23 insertions(+), 6 deletions(-)
+
+diff --git a/config.c b/config.c
+index 0d965d3..7cfd144 100644
+--- a/config.c
++++ b/config.c
+@@ -305,6 +305,12 @@ config_init_globals(void)
+ 	const char *default_ps = uci_lookup_option_string(
+ 			uci_ctx, globals, "default_ps");
+ 
++	const char *preserve_ps = uci_lookup_option_string(
++			uci_ctx, globals, "preserve_ps");
++
++	if (preserve_ps)
++		device_set_preserve_ps(strcmp(preserve_ps, "1") ? false : true);
++
+ 	if (default_ps)
+ 		device_set_default_ps(strcmp(default_ps, "1") ? false : true);
+ }
+diff --git a/netifd.h b/netifd.h
+index 5a90858..4a676ac 100644
+--- a/netifd.h
++++ b/netifd.h
+@@ -100,4 +100,6 @@ extern const char *config_path;
+ void netifd_restart(void);
+ void netifd_reload(void);
+ 
++void device_set_preserve_ps(bool state);
++
+ #endif
+diff --git a/system-linux.c b/system-linux.c
+index 67fa2b1..dd429ec 100644
+--- a/system-linux.c
++++ b/system-linux.c
+@@ -81,6 +81,7 @@ static int cb_rtnl_event(struct nl_msg *msg, void *arg);
+ static void handle_hotplug_event(struct uloop_fd *u, unsigned int events);
+ 
+ static char dev_buf[256];
++static bool preserve_ps = false;
+ 
+ static void
+ handler_nl_event(struct uloop_fd *u, unsigned int events)
+@@ -1290,6 +1291,11 @@ system_if_get_settings(struct device *dev, struct device_settings *s)
+ 	}
+ }
+ 
++void
++device_set_preserve_ps(bool state) {
++	preserve_ps = state;
++}
++
+ static void
+ system_if_set_rps_xps_val(const char *path, int val)
+ {
+@@ -1316,12 +1322,14 @@ system_if_apply_rps_xps(struct device *dev, struct device_settings *s)
+ 	if (n_cpus < 2)
+ 		return;
+ 
+-	val = (1 << n_cpus) - 1;
+-	snprintf(dev_buf, sizeof(dev_buf), "/sys/class/net/%s/queues/*/rps_cpus", dev->ifname);
+-	system_if_set_rps_xps_val(dev_buf, s->rps ? val : 0);
++	if(!preserve_ps) {
++		val = (1 << n_cpus) - 1;
++		snprintf(dev_buf, sizeof(dev_buf), "/sys/class/net/%s/queues/*/rps_cpus", dev->ifname);
++		system_if_set_rps_xps_val(dev_buf, s->rps ? val : 0);
+ 
+-	snprintf(dev_buf, sizeof(dev_buf), "/sys/class/net/%s/queues/*/xps_cpus", dev->ifname);
+-	system_if_set_rps_xps_val(dev_buf, s->xps ? val : 0);
++		snprintf(dev_buf, sizeof(dev_buf), "/sys/class/net/%s/queues/*/xps_cpus", dev->ifname);
++		system_if_set_rps_xps_val(dev_buf, s->xps ? val : 0);
++	}
+ }
+ 
+ void
+@@ -1410,7 +1418,8 @@ int system_if_up(struct device *dev)
+ int system_if_down(struct device *dev)
+ {
+ 	int ret = system_if_flags(dev->ifname, 0, IFF_UP);
+-	system_if_apply_settings(dev, &dev->orig_settings, dev->orig_settings.flags);
++	if(!preserve_ps)
++		system_if_apply_settings(dev, &dev->orig_settings, dev->orig_settings.flags);
+ 	return ret;
+ }
+ 
+-- 
+2.15.1
+

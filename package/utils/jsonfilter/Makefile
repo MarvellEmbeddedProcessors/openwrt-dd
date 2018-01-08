@@ -5,7 +5,7 @@ PKG_VERSION:=2016-07-02
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL=$(OPENWRT_GIT)/project/jsonpath.git
+PKG_SOURCE_URL=https://git.lede-project.org/project/jsonpath.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=dea067ad67d977c247c300c06676a06adf21e0c7
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
@@ -22,7 +22,7 @@ define Package/jsonfilter
   CATEGORY:=Base system
   DEPENDS:=+libubox +libjson-c
   TITLE:=OpenWrt JSON filter utility
-  URL:=http://git.openwrt.org/?p=project/jsonpath.git
+  URL:=https://git.lede-project.org/?p=project/jsonpath.git
 endef
 
 define Package/jsonfilter/install

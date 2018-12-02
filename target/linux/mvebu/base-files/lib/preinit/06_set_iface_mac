@@ -40,7 +40,15 @@ preinit_set_mac_address() {
 			;;
 		esac
 		;;
+	globalscale,espressobin)
+		mac=$(cat /sys/class/net/eth0/address)
+		ifconfig wan hw ether $(macaddr_add "$mac" 1) 2>/dev/null
+		ifconfig lan0 hw ether $(macaddr_add "$mac" 2) 2>/dev/null
+		ifconfig lan1 hw ether $(macaddr_add "$mac" 3) 2>/dev/null
+		;;
 	esac
+
+
 }
 
 boot_hook_add preinit_main preinit_set_mac_address

@@ -69,6 +69,16 @@ define Build/sdcard-img-ext4
 		83 $$ROOTFS_SIZE $(IMAGE_ROOTFS)
 endef
 
+define Build/sysupgrade-rootfs
+	$(INSTALL_DIR) $(TARGET_DIR)/boot
+	$(CP) $(KDIR)/Image $(TARGET_DIR)/boot/Image
+	$(CP) $(DTS_DIR)/$(DEVICE_DTS).dtb $(TARGET_DIR)/boot/fdt.dtb
+
+	$(TAR) -cp --numeric-owner --owner=0 --group=0 --sort=name \
+		$(if $(SOURCE_DATE_EPOCH),--mtime="@$(SOURCE_DATE_EPOCH)") \
+		-C $(TARGET_DIR)/ . | gzip -9n > $@
+endef
+
 define Build/omnia-medkit-initramfs
 	$(TAR) -c -T /dev/null -f $@
 	rm -rf $(dir $(IMAGE_KERNEL))boot

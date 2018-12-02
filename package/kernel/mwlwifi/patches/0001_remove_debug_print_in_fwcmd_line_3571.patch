@@ -1,0 +1,14 @@
+diff -Naur mwlwifi-2018-09-06-ec0adbf6/hif/fwcmd.c mwlwifi-2018-09-06-ec0adbf6.new/hif/fwcmd.c
+--- mwlwifi-2018-09-06-ec0adbf6/hif/fwcmd.c	2018-09-06 14:28:46.000000000 +0800
++++ mwlwifi-2018-09-06-ec0adbf6.new/hif/fwcmd.c	2018-09-19 12:19:30.443633103 +0800
+@@ -3568,8 +3568,8 @@
+ 	struct mwl_priv *priv = hw->priv;
+ 	struct hostcmd_cmd_802_11_slot_time *pcmd;
+ 
+-	wiphy_debug(priv->hw->wiphy, "%s(): short_slot_time=%d\n",
+-		    __func__, short_slot);
++//	wiphy_debug(priv->hw->wiphy, "%s(): short_slot_time=%d\n",
++//		    __func__, short_slot);
+ 
+ 	pcmd = (struct hostcmd_cmd_802_11_slot_time *)&priv->pcmd_buf[0];
+ 

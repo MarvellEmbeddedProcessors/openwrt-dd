@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AF516586-25DE-4BBF-BA27-79E3B7D972C7}</ProjectGuid>
+    <RootNamespace>MSD</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\dev;..\..\..\include\platform;..\..\..\include\driver;..\..\..\include\api;..\..\..\include;..\..\..\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TOPAZ_BUILD_IN;PERIDOT_BUILD_IN;AGATE_BUILD_IN;PEARL_BUILD_IN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\include\platform;..\..\..\include\driver;..\..\..\include\api;..\..\..\include;..\..\..\include\utils;..\..\..\dev;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdAdvVct.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdAdvVctIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgFdb.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgFdbIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgStu.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgStuIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgVtu.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgVtuIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdLed.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPhyCtrl.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPhyCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPIRL.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPIRLIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortCtrl.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortPrioMap.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortPrioMapIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortRmon.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortRmonIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPTP.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPTPIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdQav.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdQueueCtrl.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdQueueCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdRMU.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdRMUIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdSysCtrl.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdSysCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdTCAM.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdTCAMIntf.c" />
+    <ClCompile Include="..\..\..\dev\agate\src\driver\Agate_msdHwAccess.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdAdvVct.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdAdvVctIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgFdb.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgFdbIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgStu.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgStuIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgVtu.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgVtuIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdLed.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPhyCtrl.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPhyCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPIRL.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPIRLIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortCtrl.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortPrioMap.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortPrioMapIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortRmon.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortRmonIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPTP.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPTPIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdQav.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdQueueCtrl.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdQueueCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdRMU.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdRMUIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdSysCtrl.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdSysCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdTCAM.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdTCAMIntf.c" />
+    <ClCompile Include="..\..\..\dev\pearl\src\driver\Pearl_msdHwAccess.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdAdvVct.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdAdvVctIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgFdb.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgFdbIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgStu.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgStuIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgVtu.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgVtuIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdIMP.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdIMPIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdLed.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPhyCtrl.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPhyCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPIRL.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPIRLIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortCtrl.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortPrioMap.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortPrioMapIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortRmon.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortRmonIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPTP.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPTPIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdQav.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdQueueCtrl.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdQueueCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdRMU.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdRMUIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdSysCtrl.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdSysCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdTCAM.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdTCAMIntf.c" />
+    <ClCompile Include="..\..\..\dev\peridot\src\driver\Peridot_msdHwAccess.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdAdvVct.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdAdvVctIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgFdb.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgFdbIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgStu.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgStuIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgVtu.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgVtuIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdIMP.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdIMPIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdLed.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPhyCtrl.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPhyCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPIRL.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPIRLIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortCtrl.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortPrioMap.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortPrioMapIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortRmon.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortRmonIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPTP.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPTPIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdQav.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdQueueCtrl.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdQueueCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdRMU.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdRMUIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdSysCtrl.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdSysCtrlIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdTCAM.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdTCAMIntf.c" />
+    <ClCompile Include="..\..\..\dev\topaz\src\driver\Topaz_msdHwAccess.c" />
+    <ClCompile Include="..\..\..\src\api\msdAdvVct.c" />
+    <ClCompile Include="..\..\..\src\api\msdBrgFdb.c" />
+    <ClCompile Include="..\..\..\src\api\msdBrgStu.c" />
+    <ClCompile Include="..\..\..\src\api\msdBrgVtu.c" />
+    <ClCompile Include="..\..\..\src\api\msdIMP.c" />
+    <ClCompile Include="..\..\..\src\api\msdLed.c" />
+    <ClCompile Include="..\..\..\src\api\msdPhyCtrl.c" />
+    <ClCompile Include="..\..\..\src\api\msdPIRL.c" />
+    <ClCompile Include="..\..\..\src\api\msdPortCtrl.c" />
+    <ClCompile Include="..\..\..\src\api\msdPTP.c" />
+    <ClCompile Include="..\..\..\src\api\msdQosMap.c" />
+    <ClCompile Include="..\..\..\src\api\msdPortRmon.c" />
+    <ClCompile Include="..\..\..\src\api\msdQav.c" />
+    <ClCompile Include="..\..\..\src\api\msdQueueCtrl.c" />
+    <ClCompile Include="..\..\..\src\api\msdRMU.c" />
+    <ClCompile Include="..\..\..\src\api\msdSysCtrl.c" />
+    <ClCompile Include="..\..\..\src\api\msdTCAM.c" />
+    <ClCompile Include="..\..\..\src\api\msdTrunk.c" />
+    <ClCompile Include="..\..\..\src\driver\msdDevObj.c" />
+    <ClCompile Include="..\..\..\src\driver\msdHwAccess.c" />
+    <ClCompile Include="..\..\..\src\driver\msdSysConfig.c" />
+    <ClCompile Include="..\..\..\src\driver\msdVersion.c" />
+    <ClCompile Include="..\..\..\src\platform\msdDebug.c" />
+    <ClCompile Include="..\..\..\src\platform\msdSem.c" />
+    <ClCompile Include="..\..\..\src\utils\msdUtils.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\dev\agate\include\Agate_msdApi.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdApiInternal.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdBrgFdb.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdBrgStu.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdBrgVtu.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdIMP.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdLed.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPhyCtrl.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPIRL.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPortCtrl.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPortPrioMap.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPortRmon.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPTP.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdQav.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdQueueCtrl.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdRMU.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdSysCtrl.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdTCAM.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdVct.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\driver\Agate_msdDrvSwRegs.h" />
+    <ClInclude Include="..\..\..\dev\agate\include\driver\Agate_msdHwAccess.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdApiInternal.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdBrgFdb.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdBrgStu.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdBrgVtu.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdIMP.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdLed.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPhyCtrl.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPIRL.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPortCtrl.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPortPrioMap.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPortRmon.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPTP.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdQav.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdQueueCtrl.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdRMU.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdSysCtrl.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdTCAM.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdVct.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\driver\Pearl_msdDrvSwRegs.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\driver\Pearl_msdHwAccess.h" />
+    <ClInclude Include="..\..\..\dev\pearl\include\Pearl_msdApi.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdBrgFdb.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdBrgStu.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdBrgVtu.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdIMP.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdLed.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPhyCtrl.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPIRL.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPortCtrl.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPortPrioMap.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPortRmon.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPTP.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdQav.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdQueueCtrl.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdRMU.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdSysCtrl.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdTCAM.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdVct.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdApiInternal.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\driver\Peridot_msdDrvSwRegs.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\driver\Peridot_msdHwAccess.h" />
+    <ClInclude Include="..\..\..\dev\peridot\include\Peridot_msdApi.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdBrgFdb.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdBrgStu.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdBrgVtu.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdIMP.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdLed.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPhyCtrl.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPIRL.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPortCtrl.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPortPrioMap.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPortRmon.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPTP.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdQav.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdQueueCtrl.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdRMU.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdSysCtrl.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdTCAM.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdVct.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdApiInternal.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\driver\Topaz_msdDrvSwRegs.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\driver\Topaz_msdHwAccess.h" />
+    <ClInclude Include="..\..\..\dev\topaz\include\Topaz_msdApi.h" />
+    <ClInclude Include="..\..\..\include\api\msdAdvVct.h" />
+    <ClInclude Include="..\..\..\include\api\msdBrgFdb.h" />
+    <ClInclude Include="..\..\..\include\api\msdBrgStu.h" />
+    <ClInclude Include="..\..\..\include\api\msdBrgVtu.h" />
+    <ClInclude Include="..\..\..\include\api\msdIMP.h" />
+    <ClInclude Include="..\..\..\include\api\msdLed.h" />
+    <ClInclude Include="..\..\..\include\api\msdPhyCtrl.h" />
+    <ClInclude Include="..\..\..\include\api\msdPIRL.h" />
+    <ClInclude Include="..\..\..\include\api\msdPortCtrl.h" />
+    <ClInclude Include="..\..\..\include\api\msdPTP.h" />
+    <ClInclude Include="..\..\..\include\api\msdQosMap.h" />
+    <ClInclude Include="..\..\..\include\api\msdPortRmon.h" />
+    <ClInclude Include="..\..\..\include\api\msdQav.h" />
+    <ClInclude Include="..\..\..\include\api\msdQueueCtrl.h" />
+    <ClInclude Include="..\..\..\include\api\msdRMU.h" />
+    <ClInclude Include="..\..\..\include\api\msdSysCtrl.h" />
+    <ClInclude Include="..\..\..\include\api\msdTCAM.h" />
+    <ClInclude Include="..\..\..\include\api\msdTrunk.h" />
+    <ClInclude Include="..\..\..\include\driver\msdCopyright.h" />
+    <ClInclude Include="..\..\..\include\driver\msdDevObj.h" />
+    <ClInclude Include="..\..\..\include\driver\msdHwAccess.h" />
+    <ClInclude Include="..\..\..\include\driver\msdSysConfig.h" />
+    <ClInclude Include="..\..\..\include\driver\msdApiTypes.h" />
+    <ClInclude Include="..\..\..\include\msdApi.h" />
+    <ClInclude Include="..\..\..\include\platform\msdSem.h" />
+    <ClInclude Include="..\..\..\include\utils\msdUtils.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

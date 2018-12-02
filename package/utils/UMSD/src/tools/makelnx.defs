@@ -1,0 +1,96 @@
+# make.defs - common variable definitions
+#
+# modification history
+# --------------------
+# 05-26-2016,sundk	created from MSD_PERIDOT
+#
+SHELL=/bin/sh -e
+
+#CC_ARCH_SPEC=  -march=i386 -mcpu=i686
+
+SW_ROOT = $(MSD_USER_BASE)
+SRC_BASE_PATH = $(SW_ROOT)/src
+QD_INCLUDE_PATH = $(SW_ROOT)/include
+
+LIB_DIR = $(SW_ROOT)/library
+OBJDIR = $(MSD_PROJ_NAME)_obj
+
+ifeq ($(CC),)
+CC      =cc
+LD      =ld
+endif
+
+MAKE    =make
+CD      =pwd
+RM      =rm -f
+ECHO    =echo
+
+DEPENDENCIES= makedeps
+
+#CFLAGS = $(CFLAGS1) $(CFLAGS2) $(INCLUDE_PATH) $(CDEBUG_DEFINES)
+CFLAGS = -DLINUX $(CFLAGS1) $(CFLAGS2) $(INCLUDE_PATH) $(CDEBUG_DEFINES) $(TOPAZ) $(PERIDOT) $(AGATE) $(PEARL)
+
+CFLAGS1 = $(CC_ARCH_SPEC) $(DEBUG_TYPE)
+CFLAGS2 = $(CC_OPTIM) $(CC_COMPILER) $(CC_WARNINGS_ALL)
+
+CC_OPTIM = $(CC_OPTIM_TARGET)
+CC_OPTIM_DRIVER	= -O
+CC_OPTIM_TARGET	= -O2
+CC_COMPILER = -ansi
+CC_WARNINGS_ALL	= -Wall
+
+LDFLAGS = -r -X -N
+ARFLAGS = crus
+
+ifeq ($(MSD_APP),YES)
+CFLAGS += -DDBG_APP
+endif
+
+ifeq ($(RELEASE),NO)
+CDEBUG_DEFINES=-DMSD_DEBUG=1 -DMSD_DEBUG_QD
+CC_COMPILER = -ansi 
+LDFLAGS = -r -X -N
+else
+CDEBUG_DEFINES=
+endif
+
+ifeq ($(TOPAZ_BUILD),YES)
+TOPAZ=-DTOPAZ_BUILD_IN
+PACKAGE_OBJECT_TOPAZ = $(SW_ROOT)/dev/topaz/$(MSD_PROJ_NAME)_Topaz.o
+else
+TOPAZ=
+PACKAGE_OBJECT_TOPAZ=
+endif
+
+ifeq ($(PERIDOT_BUILD),YES)
+PERIDOT=-DPERIDOT_BUILD_IN
+PACKAGE_OBJECT_PERIDOT = $(SW_ROOT)/dev/peridot/$(MSD_PROJ_NAME)_Peridot.o
+else
+PERIDOT=
+PACKAGE_OBJECT_PERIDOT=
+endif
+
+ifeq ($(AGATE_BUILD),YES)
+AGATE=-DAGATE_BUILD_IN
+PACKAGE_OBJECT_AGATE = $(SW_ROOT)/dev/agate/$(MSD_PROJ_NAME)_Agate.o
+else
+AGATE=
+PACKAGE_OBJECT_AGATE=
+endif
+
+ifeq ($(PEARL_BUILD),YES)
+PEARL=-DPEARL_BUILD_IN
+PACKAGE_OBJECT_PEARL = $(SW_ROOT)/dev/pearl/$(MSD_PROJ_NAME)_Pearl.o
+else
+PEARL=
+PACKAGE_OBJECT_PEARL=
+endif
+
+INCLUDE_PATH = -I. \
+               -I$(QD_INCLUDE_PATH)/driver \
+               -I$(QD_INCLUDE_PATH)/api \
+               -I$(QD_INCLUDE_PATH)/platform \
+               -I$(QD_INCLUDE_PATH)/utils \
+               -I$(QD_INCLUDE_PATH) \
+			   -I$(SW_ROOT)/dev
+

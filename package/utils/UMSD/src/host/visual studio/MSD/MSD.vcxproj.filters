@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{f687c210-437d-4e92-81cd-81e59a2787e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev">
+      <UniqueIdentifier>{e627bc18-befb-41d4-8b7d-ebe14a66c1ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\topaz">
+      <UniqueIdentifier>{2ea5ec62-f8c4-4d2d-a8a6-3a0b328193f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\peridot">
+      <UniqueIdentifier>{a7229374-1b66-4aa2-96d4-739879b6cfc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\platform">
+      <UniqueIdentifier>{f745c758-ab2c-4ae4-a52d-e71e587de087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\utils">
+      <UniqueIdentifier>{c4ffe8b1-a258-4eae-b3ca-e7795f525eb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\topaz\src">
+      <UniqueIdentifier>{b544c28e-19f2-4ca5-a7ac-c7cfe5ec43e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include">
+      <UniqueIdentifier>{95e66c2b-4b55-497f-93fe-7f4bebbcfe38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\driver">
+      <UniqueIdentifier>{75a81263-c7c3-46e0-991a-d0004e85776a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\platform">
+      <UniqueIdentifier>{a17ddc4d-f496-453e-ace5-a08a83edb523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\utils">
+      <UniqueIdentifier>{238bcaae-c2dc-4426-81ae-09e306259c52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev">
+      <UniqueIdentifier>{d43b519c-3fc8-4aa1-a0bd-1bbc410fdac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\topaz">
+      <UniqueIdentifier>{a2da9857-aa4f-49cf-9404-5d948488ae19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\peridot">
+      <UniqueIdentifier>{e27927f3-5a86-4c07-8374-39005b79e256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\topaz\src\driver">
+      <UniqueIdentifier>{dd0e8df0-1d34-4385-be14-fd85623eaaba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\topaz\include">
+      <UniqueIdentifier>{c30a0ae6-a6b9-47e8-b20d-ba38b25d611f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\topaz\include\driver">
+      <UniqueIdentifier>{cfe1c20e-7537-4cd4-9a21-855139b9b15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\driver">
+      <UniqueIdentifier>{69b8d006-83ae-4c68-a3c1-385a5456db6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\peridot\src">
+      <UniqueIdentifier>{0d46447a-95fe-45ac-9432-1ecf5c2303cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\peridot\src\driver">
+      <UniqueIdentifier>{6d151a62-7b25-4cab-a939-a1bc14f4fa6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\peridot\include">
+      <UniqueIdentifier>{aa6a6103-2a55-46ce-a2d8-3499c0d5fb83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\peridot\include\driver">
+      <UniqueIdentifier>{434d017c-1865-44c3-b398-92a6c70572db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\api">
+      <UniqueIdentifier>{9f16a08a-5fad-430b-9f1f-d132c9cb085c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\api">
+      <UniqueIdentifier>{d45b79cb-f58b-4efc-863c-3931d3a4d62e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\topaz\src\api">
+      <UniqueIdentifier>{1952c1be-44ee-4039-b797-4b3e50502452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\peridot\src\api">
+      <UniqueIdentifier>{31042b79-6abc-4f7a-b1a2-fa83365a22bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\topaz\include\api">
+      <UniqueIdentifier>{6bd550cd-9f4c-468c-870c-9d77c0c024a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\peridot\include\api">
+      <UniqueIdentifier>{1abf320a-8b6e-4a89-87d5-5f3fe617200b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\agate">
+      <UniqueIdentifier>{114892f9-9028-45d2-8578-0a68eb63c584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\pearl">
+      <UniqueIdentifier>{2ae33aea-7fa2-4936-b286-1029d47ea318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\agate\src">
+      <UniqueIdentifier>{99e99d4d-9a22-447c-986a-dd32e9efa794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\pearl\src">
+      <UniqueIdentifier>{20cdf585-43a4-4bdc-a4d3-79f6b4a56f67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\agate">
+      <UniqueIdentifier>{bb041bab-e07c-49f8-ac7e-3823013bbd9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\pearl">
+      <UniqueIdentifier>{8e41c9f8-7715-424b-be78-efcc77d765ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\agate\src\api">
+      <UniqueIdentifier>{b282056e-db12-481a-aff0-ce415a5c6644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\agate\src\driver">
+      <UniqueIdentifier>{8ea4a1b5-7885-4d80-b8c7-53bd0fe6f7c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\pearl\src\api">
+      <UniqueIdentifier>{f62de388-ff57-49d7-a1c4-99e040539b2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dev\pearl\src\driver">
+      <UniqueIdentifier>{10980af7-c175-4374-b402-8afb0f6e29fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\agate\include">
+      <UniqueIdentifier>{cb840e19-e1aa-4e55-bbf8-9f09dd5fb811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\agate\include\api">
+      <UniqueIdentifier>{dc0cb173-6685-43e4-a5cb-6651f52fbcc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\agate\include\driver">
+      <UniqueIdentifier>{0ed185e3-e527-424d-8792-42d8649268af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\pearl\include">
+      <UniqueIdentifier>{32f87876-87f8-4349-be25-fc34b1029462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\pearl\include\api">
+      <UniqueIdentifier>{33feee41-a28f-4c9e-907a-00513bc0e9ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dev\pearl\include\driver">
+      <UniqueIdentifier>{b0f9a5ac-c5d7-41ab-a9fd-4ac38db96aa0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\driver\msdDevObj.c">
+      <Filter>Source Files\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\driver\msdHwAccess.c">
+      <Filter>Source Files\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\driver\msdSysConfig.c">
+      <Filter>Source Files\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\driver\msdVersion.c">
+      <Filter>Source Files\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\platform\msdDebug.c">
+      <Filter>Source Files\src\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\platform\msdSem.c">
+      <Filter>Source Files\src\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\utils\msdUtils.c">
+      <Filter>Source Files\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdAdvVct.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdBrgFdb.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdBrgStu.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdBrgVtu.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdIMP.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdLed.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdPhyCtrl.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdPIRL.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdPortCtrl.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdPortRmon.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdPTP.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdQav.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdQosMap.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdQueueCtrl.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdRMU.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdSysCtrl.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdTCAM.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\api\msdTrunk.c">
+      <Filter>Source Files\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\driver\Peridot_msdHwAccess.c">
+      <Filter>Source Files\dev\peridot\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\driver\Topaz_msdHwAccess.c">
+      <Filter>Source Files\dev\topaz\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdAdvVct.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdAdvVctIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgFdb.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgFdbIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgStu.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgStuIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgVtu.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdBrgVtuIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdIMP.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdIMPIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdLed.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPhyCtrl.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPhyCtrlIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPIRL.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPIRLIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortCtrl.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortCtrlIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortPrioMap.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortPrioMapIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortRmon.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPortRmonIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPTPIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdQav.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdQueueCtrl.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdQueueCtrlIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdRMU.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdRMUIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdSysCtrl.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdSysCtrlIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdTCAM.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdTCAMIntf.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdAdvVct.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdAdvVctIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgFdb.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgFdbIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgStu.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgStuIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgVtu.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdBrgVtuIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdIMP.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdIMPIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdLed.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPhyCtrl.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPhyCtrlIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPIRL.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPIRLIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortCtrl.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortCtrlIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortPrioMap.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortPrioMapIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortRmon.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPortRmonIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPTP.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdPTPIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdQav.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdQueueCtrl.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdQueueCtrlIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdRMU.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdRMUIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdSysCtrl.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdSysCtrlIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdTCAM.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\topaz\src\api\Topaz_msdTCAMIntf.c">
+      <Filter>Source Files\dev\topaz\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\peridot\src\api\Peridot_msdPTP.c">
+      <Filter>Source Files\dev\peridot\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdAdvVct.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdAdvVctIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgFdb.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgFdbIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgStu.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgStuIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgVtu.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdBrgVtuIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdLed.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPhyCtrl.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPhyCtrlIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPIRL.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPIRLIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortCtrl.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortCtrlIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortPrioMap.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortPrioMapIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortRmon.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPortRmonIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPTP.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdPTPIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdQav.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdQueueCtrl.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdQueueCtrlIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdRMU.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdRMUIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdSysCtrl.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdSysCtrlIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdTCAM.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\api\Agate_msdTCAMIntf.c">
+      <Filter>Source Files\dev\agate\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\agate\src\driver\Agate_msdHwAccess.c">
+      <Filter>Source Files\dev\agate\src\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdAdvVct.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdAdvVctIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgFdb.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgFdbIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgStu.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgStuIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgVtu.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdBrgVtuIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdLed.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPhyCtrl.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPhyCtrlIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPIRL.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPIRLIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortCtrl.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortCtrlIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortPrioMap.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortPrioMapIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortRmon.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPortRmonIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPTP.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdPTPIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdQav.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdQueueCtrl.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdQueueCtrlIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdRMU.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdRMUIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdSysCtrl.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdSysCtrlIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdTCAM.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\api\Pearl_msdTCAMIntf.c">
+      <Filter>Source Files\dev\pearl\src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dev\pearl\src\driver\Pearl_msdHwAccess.c">
+      <Filter>Source Files\dev\pearl\src\driver</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\driver\msdCopyright.h">
+      <Filter>Header Files\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\driver\msdDevObj.h">
+      <Filter>Header Files\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\driver\msdHwAccess.h">
+      <Filter>Header Files\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\driver\msdSysConfig.h">
+      <Filter>Header Files\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\driver\msdApiTypes.h">
+      <Filter>Header Files\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\platform\msdSem.h">
+      <Filter>Header Files\include\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\utils\msdUtils.h">
+      <Filter>Header Files\include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\msdApi.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdAdvVct.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdBrgFdb.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdBrgStu.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdBrgVtu.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdIMP.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdLed.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdPhyCtrl.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdPIRL.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdPortCtrl.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdPortRmon.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdPTP.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdQav.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdQosMap.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdQueueCtrl.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdRMU.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdSysCtrl.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdTCAM.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\api\msdTrunk.h">
+      <Filter>Header Files\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\Peridot_msdApi.h">
+      <Filter>Header Files\dev\peridot\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdBrgFdb.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdBrgStu.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdBrgVtu.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdIMP.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdLed.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPhyCtrl.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPIRL.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPortCtrl.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPortPrioMap.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPortRmon.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdPTP.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdQav.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdQueueCtrl.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdRMU.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdSysCtrl.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdTCAM.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdVct.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\api\Peridot_msdApiInternal.h">
+      <Filter>Header Files\dev\peridot\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\Topaz_msdApi.h">
+      <Filter>Header Files\dev\topaz\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\driver\Peridot_msdDrvSwRegs.h">
+      <Filter>Header Files\dev\peridot\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\peridot\include\driver\Peridot_msdHwAccess.h">
+      <Filter>Header Files\dev\peridot\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\driver\Topaz_msdDrvSwRegs.h">
+      <Filter>Header Files\dev\topaz\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\driver\Topaz_msdHwAccess.h">
+      <Filter>Header Files\dev\topaz\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdBrgFdb.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdBrgStu.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdBrgVtu.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdIMP.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdLed.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPhyCtrl.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPIRL.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPortCtrl.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPortPrioMap.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPortRmon.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdPTP.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdQav.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdQueueCtrl.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdRMU.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdSysCtrl.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdTCAM.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdVct.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\topaz\include\api\Topaz_msdApiInternal.h">
+      <Filter>Header Files\dev\topaz\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdApiInternal.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdBrgFdb.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdBrgStu.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdBrgVtu.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdIMP.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdLed.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPhyCtrl.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPIRL.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPortCtrl.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPortPrioMap.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPortRmon.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdPTP.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdQav.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdQueueCtrl.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdRMU.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdSysCtrl.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdTCAM.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\api\Agate_msdVct.h">
+      <Filter>Header Files\dev\agate\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\driver\Agate_msdDrvSwRegs.h">
+      <Filter>Header Files\dev\agate\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\driver\Agate_msdHwAccess.h">
+      <Filter>Header Files\dev\agate\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\agate\include\Agate_msdApi.h">
+      <Filter>Header Files\dev\agate\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdApiInternal.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdBrgFdb.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdBrgStu.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdBrgVtu.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdIMP.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdLed.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPhyCtrl.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPIRL.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPortCtrl.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPortPrioMap.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPortRmon.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdPTP.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdQav.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdQueueCtrl.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdRMU.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdSysCtrl.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdTCAM.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\api\Pearl_msdVct.h">
+      <Filter>Header Files\dev\pearl\include\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\driver\Pearl_msdDrvSwRegs.h">
+      <Filter>Header Files\dev\pearl\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\driver\Pearl_msdHwAccess.h">
+      <Filter>Header Files\dev\pearl\include\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dev\pearl\include\Pearl_msdApi.h">
+      <Filter>Header Files\dev\pearl\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

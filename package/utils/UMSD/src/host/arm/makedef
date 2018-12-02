@@ -1,0 +1,94 @@
+MSD_PATH=$(MSD_USER_BASE)
+#VPATH = $(MSD_PATH)/sample $(MSD_PATH)/host/src $(MSD_PATH)/unittest	
+VPATH = $(MSD_PATH)/sample $(MSD_PATH)/host/src
+UNITTEST_BUILD=NO
+
+ifeq ($(UNITTEST_BUILD), YES)
+VPATH += $(MSD_PATH)/unittest $(MSD_PATH)/unittest/topaz $(MSD_PATH)/unittest/peridot $(MSD_PATH)/unittest/agate $(MSD_PATH)/unittest/pearl
+UNITTEST=-DUNITTEST
+else
+UNITTEST=
+endif
+
+ifeq ($(TOPAZ_BUILD),YES)
+TOPAZ=-DTOPAZ_BUILD_IN
+else
+TOPAZ=
+endif
+
+ifeq ($(PERIDOT_BUILD),YES)
+PERIDOT=-DPERIDOT_BUILD_IN
+else
+PERIDOT=
+endif
+
+ifeq ($(AGATE_BUILD),YES)
+AGATE=-DAGATE_BUILD_IN
+else
+AGATE=
+endif
+
+ifeq ($(PEARL_BUILD),YES)
+PEARL=-DPEARL_BUILD_IN
+else
+PEARL=
+endif
+
+
+MSD_INCLUDE = -I$(MSD_PATH)/include \
+               -I$(MSD_PATH)/include/driver \
+               -I$(MSD_PATH)/include/api \
+               -I$(MSD_PATH)/include/platform \
+               -I$(MSD_PATH)/include/utils \
+               -I$(MSD_PATH)/include/dev \
+               -I$(MSD_PATH)/host/linux/libMRegAccess \
+	       -I$(MSD_PATH)/host/lib/libcli \
+               -I$(MSD_PATH)/host/src \
+               -I$(MSD_PATH)/unittest \
+               -I$(MSD_PATH)/sample \
+	       -I$(MSD_PATH)/host/arm/lib/WpdPack/Include
+
+ifeq ($(UNITTEST_BUILD), YES)
+SAMPLE_OBJS = sample_msdBrgStu.o sample_msdPortRmon.o sample_msdAdvVct.o sample_msdBrgVtu.o \
+				sample_msdSysConfig.o sample_msdBrgFdb.o sample_msdPIRL.o sample_msdTCAM.o \
+				sample_msdIMP.o sample_msdQueueCtrl.o sample_msdTrunk.o sample_msdPtp.o \
+				sample_msdQav.o sample_msdQos.o sample_msdRMU.o
+
+UNITTEST_OBJS = UnitTest_Util.o Peridot_UnitTest_msdBrgFdb.o Peridot_UnitTest_msdPIRL.o \
+				Peridot_UnitTest_msdBrgStu.o Peridot_UnitTest_msdPortRmon.o \
+				Peridot_UnitTest_msdBrgVtu.o Peridot_UnitTest_msdTCAM.o \
+				Peridot_UnitTest_msdSysCtrl.o Peridot_UnitTest_msdQosMap.o \
+				Peridot_UnitTest_msdQueueCtrl.o Peridot_UnitTest_msdPortCtrl.o \
+				Peridot_UnitTest_msdTrunk.o Peridot_UnitTest_msdPhyCtrl.o \
+				Peridot_UnitTest_msdQav.o Peridot_UnitTest_msdPTP.o Peridot_UnitTest_msdLed.o\
+				Topaz_UnitTest_msdBrgFdb.o Topaz_UnitTest_msdPTP.o\
+				Topaz_UnitTest_msdPIRL.o Topaz_UnitTest_msdBrgStu.o \
+				Topaz_UnitTest_msdPortRmon.o Topaz_UnitTest_msdBrgVtu.o \
+				Topaz_UnitTest_msdTCAM.o Topaz_UnitTest_msdSysCtrl.o \
+				Topaz_UnitTest_msdQosMap.o Topaz_UnitTest_msdQueueCtrl.o \
+				Topaz_UnitTest_msdPortCtrl.o Topaz_UnitTest_msdTrunk.o \
+				Topaz_UnitTest_msdPhyCtrl.o Topaz_UnitTest_msdQav.o Topaz_UnitTest_msdLed.o \
+				Agate_UnitTest_msdBrgFdb.o Agate_UnitTest_msdPTP.o\
+				Agate_UnitTest_msdPIRL.o Agate_UnitTest_msdBrgStu.o \
+				Agate_UnitTest_msdPortRmon.o Agate_UnitTest_msdBrgVtu.o \
+				Agate_UnitTest_msdTCAM.o Agate_UnitTest_msdSysCtrl.o \
+				Agate_UnitTest_msdQosMap.o \
+				Agate_UnitTest_msdPortCtrl.o Agate_UnitTest_msdTrunk.o \
+				Agate_UnitTest_msdPhyCtrl.o Agate_UnitTest_msdQav.o Agate_UnitTest_msdLed.o \
+				Pearl_UnitTest_msdBrgFdb.o Pearl_UnitTest_msdPTP.o\
+				Pearl_UnitTest_msdPIRL.o Pearl_UnitTest_msdBrgStu.o \
+				Pearl_UnitTest_msdPortRmon.o Pearl_UnitTest_msdBrgVtu.o \
+				Pearl_UnitTest_msdTCAM.o Pearl_UnitTest_msdSysCtrl.o \
+				Pearl_UnitTest_msdQosMap.o Pearl_UnitTest_msdPortCtrl.o Pearl_UnitTest_msdTrunk.o \
+				Pearl_UnitTest_msdPhyCtrl.o Pearl_UnitTest_msdQav.o Pearl_UnitTest_msdLed.o
+else
+SAMPLE_OBJS=
+UNITTEST_OBJS=
+endif
+
+SWTEST_OBJS = customize.o arm_init.o arm_main.o apiCLI.o rmuPcap.o cliCommand.o Wrapper.o
+
+ifeq ($(UNITTEST_BUILD), YES)
+SWTEST_OBJS += unittest.o sample.o
+endif
+

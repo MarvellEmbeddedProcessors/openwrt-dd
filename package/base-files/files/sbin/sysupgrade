@@ -266,6 +266,10 @@ fi
 install_bin /sbin/upgraded
 v "Commencing upgrade. Closing all shell sessions."
 
+if [ -f "/usr/bin/MCLI" ];then
+	MCLI down
+fi
+
 COMMAND='. /lib/functions.sh; include /lib/upgrade; do_upgrade_stage2'
 
 if [ -n "$FAILSAFE" ]; then

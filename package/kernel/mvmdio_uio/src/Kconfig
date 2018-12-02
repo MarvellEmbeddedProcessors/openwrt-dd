@@ -1,0 +1,2 @@
+config MVMDIO_UIO
+	tristate "Marvell MDIO interface driver"
